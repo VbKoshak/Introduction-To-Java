@@ -24,7 +24,8 @@ public class Main {
         //
         System.out.println(task9.dragonHeads(500));
         //
-
+        task10.characterCheck('A');
+        task10.characterCheck2('o');
         //
         System.out.println(task11.nextDay(31,12,1985));
 
