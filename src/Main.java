@@ -1,8 +1,6 @@
 public class Main {
     public static void main (String[] args) {
         //
-
-
         System.out.println(task1.MainTask1.differ(1,2,3));
         //
         task1.MainTask1.showFromKilos(52503);
