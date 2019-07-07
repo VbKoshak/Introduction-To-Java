@@ -28,6 +28,9 @@ public class Main {
         task1.MainTask2.characterCheck2('o');
         //
         System.out.println(task1.MainTask2.nextDay(31,12,1985));
+        //
+        System.out.println(task2.MainTask.headsOrTails(300));
+        //
 
     }
 
