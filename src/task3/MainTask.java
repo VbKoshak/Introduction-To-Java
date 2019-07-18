@@ -271,6 +271,16 @@ public class MainTask {
                 arr[firstIndex] -= arr[secondIndex];
         }
 
+        public static void reverseArray(double[] arr) {
+                int length = arr.length;
+                int middle = length/2;
+                length--;
+
+                for (int i = 0; i < middle; i++) {
+                        swap(arr,i,length-i);
+                }
+        }
+
         /*
         *реализовать несколько алгоритмов сортировок элементов вектора по
         *возрастанию и убыванию (рекомендуется для реализации как минимум
@@ -280,19 +290,161 @@ public class MainTask {
         *(quick sort).
          */
 
+        public static void bubbleSort(double[] arr) {
+                int length = arr.length - 1;
+                int border;
+
+                for (int i = 0; i < length; i++){
+                        border = length - i;                            // not to sort sorted part
+                        for (int j = 0; j < border; j++){
+                                if (arr[j] > arr[j+1]){
+                                        swap(arr,j,j+1);
+                                }
+                        }
+                }
+        }
+
+        public static void insertionSort(double[] arr) {
+                int length = arr.length;
+                double el;
+                int inner;
+
+                for (int outer = 1; outer < length; outer++){
+                        el = arr[outer];
+                        inner = 0;
+
+                        while (el > arr[inner]){                        // finding the index where el should be
+                                inner++;
+                        }
+
+                        if (inner < outer){                             // check if it is in sorted part
+                                for (int i = outer; i > inner;){        // pushing the array to place our element
+                                        swap(arr,i,--i);
+                                }
+                        }
+                }
+        }
+
+        public static void selectionSort(double[] arr) {
+                int length = arr.length;
+                double min;                                             // min value
+                int minIndex;                                           // index of min value
+
+                int border = length-1;
+                for (int i = 0; i < border; i++) {
+                        min = arr[i];
+                        minIndex = i;
+
+                        for (int j = i+1; j < length; j++){
+                                if (arr[j] < min) {
+                                        min = arr[j];
+                                        minIndex = j;
+                                }
+                        }
+
+                        if (minIndex != i) {
+                                swap(arr,i,minIndex);
+                        }
+                }
+        }
+
+        private static void merge(double[] arr, int left, int middle, int right) {
+                int size = right-left+1;                                        // size of a temporary array
+                double[] temp = new double[size];
+                int index= 0;                                                   // index for pushing in temp array
+
+                int leftCopy = left;
+                int rightPartStart = ++middle;
+
+                right++;                                                        // not to use <=
+
+                while (left < middle && rightPartStart < right) {               // sorting in a temp array
+                        if (arr[left] < arr[rightPartStart]){
+                                temp[index++] = arr[left++];
+                        } else {
+                                temp[index++] = arr[rightPartStart++];
+                        }
+                }
+
+                if (left < middle) {                                  // finish sorting by adding the biggest numbers
+                        for (int i = left; i < middle;) {
+                                temp[index++] = arr[i++];
+                        }
+                } else if (rightPartStart < right) {
+                        for (int i = rightPartStart; i < right;){
+                                temp[index++] = arr[rightPartStart++];
+                        }
+                }
+
+                for (int i = 0; i < size;i++,leftCopy++) {                      // copying from temp array to basic
+                        arr[leftCopy] = temp[i];
+                }
+        }
+
+        public static void mergeSort(double[] arr, int left, int right){
+                int length = right - left;
+
+                if (length == 1) {                                              // sorting if array length = 2, too
+                                                                                // not so hard to make another function
+                        if (arr[left] > arr[right]){
+                                swap(arr,left,right);
+                        }
+
+                } else if (length > 1) {
+
+                        int middle = (left + right)/2;
+
+                        mergeSort(arr,left,middle);                             // sorting left part
+                        mergeSort(arr,middle+1,right);                     // sorting right part
+
+                        merge(arr,left,middle,right);                           // merging halfs
+                }
+        }
+
+        public static void quickSort (double[] arr, int left, int right) {
+                int i = left;
+                int j = right;
+
+                double midEl = arr[(left+right)/2];
+
+                do {
+                        while (arr[i] < midEl) {
+                                i++;
+                        }
+                        while (arr[j] > midEl) {
+                                j--;
+                        }
+
+                        if (i <= j) {
+                                if (i != j){
+                                        swap(arr,i,j);
+                                }
+                                i++;
+                                j--;
+                        }
+
+                } while (i < j);
+
+                if (i < right) quickSort(arr, i, right);
+                if (j > left) quickSort(arr, left, j);
+        }
+
+
 
 
         public static void main (String[] args) {
 
                 double[] vector = {1,3,6,9,10,11,14,18,20,23,25,27,30,50};
-                double[] arr = {1,2,4,3};
+                double[] arr = {1,2,4,3,5};
 
                 System.out.println(findExtrema(arr));
                 System.out.println(findAvg(arr));
                 System.out.println(isStreamlined(arr));
                 System.out.println(findIndexOfLocalExtrema(arr));
                 System.out.println(binarySearch(vector,0,vector.length,50));
-                swap(arr,1,2);
+                reverseArray(arr);
+                System.out.println(Arrays.toString(arr));
+                quickSort(arr,0,arr.length-1);
                 System.out.println(Arrays.toString(arr));
         }
 
