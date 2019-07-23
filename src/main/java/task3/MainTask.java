@@ -1,7 +1,5 @@
 package task3;
 
-import java.util.Arrays;
-
 public class MainTask {
 
         /*
@@ -73,9 +71,9 @@ public class MainTask {
                 if (maxIndex + minIndex == -2) {
                         return "There is no extremes in array";
                 } else if (maxIndex != -1 && minIndex != -1) {
-                        return "max: " + maxIndex + "\nmin: " + minIndex;
+                        return "max: " + maxIndex + "\nmin: " + minIndex + " ";
                 } else {
-                        return "Index of extrema: " + ((maxIndex == -1)? minIndex : maxIndex);
+                        return "Index of extrema: " + ((maxIndex == -1)? minIndex : maxIndex) + " ";
                 }
         }
 
@@ -126,7 +124,7 @@ public class MainTask {
                 double arAvg = arythmAvg(arr);
                 double geAvg = geomAvg(arr);
 
-                return "Arythmetic average: " + arAvg + "\nGeometric average: " + geAvg;
+                return "Arythmetic average: " + arAvg + "\nGeometric average: " + geAvg + " ";
         }
 
         /*
@@ -169,7 +167,7 @@ public class MainTask {
                 }
         }
 
-        private static boolean isStreamlined(double[] arr) {
+        public static boolean isStreamlined(double[] arr) {
                 boolean condition_1 = isGrowingOrDescending(arr,true);
                 boolean condition_2 = isGrowingOrDescending(arr,false);
 
@@ -372,7 +370,7 @@ public class MainTask {
                         }
                 } else if (rightPartStart < right) {
                         for (int i = rightPartStart; i < right;){
-                                temp[index++] = arr[rightPartStart++];
+                                temp[index++] = arr[i++];
                         }
                 }
 
@@ -428,25 +426,4 @@ public class MainTask {
                 if (i < right) quickSort(arr, i, right);
                 if (j > left) quickSort(arr, left, j);
         }
-
-
-
-
-        public static void main (String[] args) {
-
-                double[] vector = {1,3,6,9,10,11,14,18,20,23,25,27,30,50};
-                double[] arr = {1,2,4,3,5};
-
-                System.out.println(findExtrema(arr));
-                System.out.println(findAvg(arr));
-                System.out.println(isStreamlined(arr));
-                System.out.println(findIndexOfLocalExtrema(arr));
-                System.out.println(binarySearch(vector,0,vector.length,50));
-                reverseArray(arr);
-                System.out.println(Arrays.toString(arr));
-                quickSort(arr,0,arr.length-1);
-                System.out.println(Arrays.toString(arr));
-        }
-
-
 }

@@ -1,4 +1,4 @@
-public class Main {
+public class main {
     public static void main (String[] args) {
         //
         System.out.println(task1.MainTask1.differ(1,2,3));
