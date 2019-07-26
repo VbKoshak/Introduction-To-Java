@@ -26,3 +26,5 @@ min: 0 )
 14:49:21.233 TRACE task3.MainTask 77 indexOfMinEl - Exit with(0)
 14:49:21.234 TRACE task3.MainTask 96 findExtrema - Exit with(max: 5
 min: 0 )
+20:56:58.905 TRACE task3.MainTask 253 linearSearch - Enter [1.0, 2.0, 10.0, 6.0, 5.0, 4.0, 6.0, 7.0, 8.0, 3.0, 4.0, 5.0]
+20:56:58.956 TRACE task3.MainTask 265 linearSearch - Exit with(9)

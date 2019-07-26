@@ -10,13 +10,11 @@ public class MainTask {
         private static Logger logger = LogManager.getLogger();
 
 
-
         /*
         *найти индекс экстремального значения (минимальный и максимальный
         *элементы) данного вектора, если таких элементов нет, то возвратить -1;
         */
         private static int indexOfMaxEl(double[] arr) {
-
                 logger.traceEntry(Arrays.toString(arr));
 
                 int arrLength = arr.length;
@@ -36,13 +34,13 @@ public class MainTask {
                         }
 
                         if (maxIndex == -1) {
-                                System.out.println("There is at least 2 equal max values");
+                                logger.error("There is at least 2 equal max values");
                         }
 
                         return logger.traceExit(maxIndex);
 
                 } else {
-                        System.out.println("Array should not be empty!");
+                        logger.error("Array should not be empty!");
                         return logger.traceExit(-1);
                 }
         }
@@ -68,13 +66,13 @@ public class MainTask {
                         }
 
                         if (minIndex == -1) {
-                                System.out.println("There is at least 2 equal min values");
+                                logger.error("There is at least 2 equal min values");
                         }
 
                         return logger.traceExit(minIndex);
 
                 } else {
-                        System.out.println("Array should not be empty!");
+                        logger.error("Array should not be empty!");
                         return logger.traceExit(-1);
                 }
         }
@@ -162,7 +160,7 @@ public class MainTask {
                 int length = arr.length;
 
                 if (length == 0 || length == 1) {
-                        System.out.println("Array's length is not big enough");
+                        logger.error("Array's length is not big enough");
                         return logger.traceExit(false);
                 } else {
                         double prevEl = arr[0];
@@ -224,7 +222,7 @@ public class MainTask {
                 boolean finalCondition_2 = false;
 
                 if (maxIndex < 2){
-                        System.out.println("Not enough elements in array");
+                        logger.error("Not enough elements in array");
                 } else {
                         for (int i = 1; i < maxIndex; i++){
                                 condition_1 = arr[i] > arr[i-1];
@@ -249,11 +247,10 @@ public class MainTask {
         search);
          */
 
-        public static int linearSearh(double[] arr, double el) {
+        public static int linearSearch(double[] arr, double el) {
                 logger.traceEntry(Arrays.toString(arr), el);
 
                 int length = arr.length;
-
                 int returnValue = -1;
 
                 for (int i = 0; i < length; i++) {
@@ -285,8 +282,10 @@ public class MainTask {
                 if (middleEl == el) {
                         return logger.traceExit(middle);
                 } else if (el > middleEl) {
+                        logger.trace("go right");
                         return binarySearch(arr,middle,right,el);
                 } else {
+                        logger.trace("go left");
                         return binarySearch(arr,left,middle,el);
                 }
         }
@@ -302,11 +301,13 @@ public class MainTask {
                 arr[firstIndex] += arr[secondIndex];
                 arr[secondIndex] = arr[firstIndex] - arr[secondIndex];
                 arr[firstIndex] -= arr[secondIndex];
+
                 logger.traceExit();
         }
 
         public static void reverseArray(double[] arr) {
                 logger.traceEntry(Arrays.toString(arr));
+
                 int length = arr.length;
                 int middle = length/2;
                 length--;
@@ -314,6 +315,7 @@ public class MainTask {
                 for (int i = 0; i < middle; i++) {
                         swap(arr,i,length-i);
                 }
+
                 logger.traceExit();
         }
 
@@ -340,6 +342,7 @@ public class MainTask {
                                 }
                         }
                 }
+
                 logger.traceExit();
         }
 
@@ -364,6 +367,7 @@ public class MainTask {
                                 }
                         }
                 }
+
                 logger.traceExit();
         }
 
@@ -390,11 +394,13 @@ public class MainTask {
                                 swap(arr,i,minIndex);
                         }
                 }
+
                 logger.traceExit();
         }
 
         private static void merge(double[] arr, int left, int middle, int right) {
                 logger.traceEntry(Arrays.toString(arr), left, middle, right);
+                logger.trace("merging...");
 
                 int size = right-left+1;                                        // size of a temporary array
                 double[] temp = new double[size];
@@ -426,6 +432,7 @@ public class MainTask {
                 for (int i = 0; i < size;i++,leftCopy++) {                      // copying from temp array to basic
                         arr[leftCopy] = temp[i];
                 }
+
                 logger.traceExit();
         }
 
@@ -444,16 +451,21 @@ public class MainTask {
 
                         int middle = (left + right)/2;
 
+                        logger.trace("go left");
                         mergeSort(arr,left,middle);                             // sorting left part
+                        logger.trace("go right");
                         mergeSort(arr,middle+1,right);                     // sorting right part
 
                         merge(arr,left,middle,right);                           // merging halfs
+                        logger.trace("merged");
                 }
+
                 logger.traceExit();
         }
 
         public static void quickSort (double[] arr, int left, int right) {
                 logger.traceEntry(Arrays.toString(arr), left, right);
+
                 int i = left;
                 int j = right;
 
@@ -477,16 +489,15 @@ public class MainTask {
 
                 } while (i < j);
 
-                if (i < right) quickSort(arr, i, right);
-                if (j > left) quickSort(arr, left, j);
+                if (i < right) {
+                        logger.trace("go right");
+                        quickSort(arr, i, right);
+                }
+                if (j > left) {
+                        logger.trace("go left");
+                        quickSort(arr, left, j);
+                }
+
                 logger.traceExit();
-        }
-
-        public static void main(String[] args) {
-                double[] arr = {1,2,3,4,5,6};
-
-                String a = findExtrema(arr);
-
-                System.out.println(a);
         }
 }

@@ -1,8 +1,13 @@
 package task3;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.Arrays;
 
 public class MainTask2 {
+
+        private static Logger logger = LogManager.getLogger();
 
         /*
         *найти экстремальные значения (минимальный и максимальный элементы)
@@ -10,6 +15,9 @@ public class MainTask2 {
          */
 
         private static int[] indexOfMaxEl(double[][] mtx) {
+
+                logger.traceEntry();
+
                int height = mtx.length;
                int length = mtx[0].length;
 
@@ -24,10 +32,12 @@ public class MainTask2 {
                                }
                        }
                }
-               return maxIndex;
+               return logger.traceExit(maxIndex);
         }
 
         private static int[] indexOfMinEl(double[][] mtx) {
+                logger.traceEntry();
+
                 int height = mtx.length;
                 int length = mtx[0].length;
 
@@ -42,14 +52,16 @@ public class MainTask2 {
                                 }
                         }
                 }
-                return minIndex;
+                return logger.traceExit(minIndex);
         }
 
         public static String findExtrema(double[][] mtx) {
+                logger.traceEntry();
+
                 int[] max = indexOfMaxEl(mtx);
                 int[] min = indexOfMinEl(mtx);
 
-                return "Indexes of :\nmax el: " + Arrays.toString(max) + "\nmin el: " + Arrays.toString(min);
+                return logger.traceExit("Indexes of :\nmax el: " + Arrays.toString(max) + "\nmin el: " + Arrays.toString(min));
         }
 
         /*
@@ -58,6 +70,8 @@ public class MainTask2 {
          */
 
         private static double arythmAvg(double[][] mtx){
+                logger.traceEntry();
+
                 int height = mtx.length;
                 int length = mtx[0].length;
 
@@ -68,10 +82,12 @@ public class MainTask2 {
                         }
                 }
 
-                return sum/(height*length);
+                return logger.traceExit(sum/(height*length));
         }
 
         private static double geomAvg(double[][] mtx) {
+                logger.traceEntry();
+
                 int height = mtx.length;
                 int length = mtx[0].length;
 
@@ -82,12 +98,12 @@ public class MainTask2 {
                         }
                 }
 
-                return Math.pow(res,(double)1/(height*length));
+                return logger.traceExit(Math.pow(res,(double)1/(height*length)));
         }
 
         public static String findAvg(double[][] mtx) {
-                String res = "Arythmetic average: " + arythmAvg(mtx) + "\nGeometric average: " + geomAvg(mtx) + " ";
-                return res;
+                logger.traceEntry();
+                return logger.traceExit("Arythmetic average: " + arythmAvg(mtx) + "\nGeometric average: " + geomAvg(mtx) + " ");
         }
 
         /*
@@ -97,6 +113,8 @@ public class MainTask2 {
 
 
         private static boolean isSymetricMainDiag(double[][] mtx) {
+                logger.traceEntry();
+
                 int size = mtx.length;
                 int miniSize = size - 1;
                 boolean flag = true;
@@ -109,10 +127,12 @@ public class MainTask2 {
                         }
                 }
 
-                return flag;
+                return logger.traceExit(flag);
         }
 
         private static boolean isSymetricSecondDiag(double[][] mtx) {
+                logger.traceEntry();
+
                 int miniSize = mtx.length - 1;
                 int border;
                 boolean flag = true;
@@ -126,11 +146,12 @@ public class MainTask2 {
                         }
                 }
 
-                return flag;
+                return logger.traceExit(flag);
         }
 
         public static boolean isSymetric (double[][] mtx) {
-                return (isSymetricSecondDiag(mtx) || isSymetricMainDiag(mtx));
+                logger.traceEntry();
+                return logger.traceExit(isSymetricSecondDiag(mtx) || isSymetricMainDiag(mtx));
         }
 
         /*
@@ -141,6 +162,8 @@ public class MainTask2 {
         */
 
         private static boolean isExtrema(double[][] mtx, int i, int j) {
+                logger.traceEntry();
+
                 int height = mtx.length - 1;
                 int length = mtx[0].length - 1;
 
@@ -195,10 +218,12 @@ public class MainTask2 {
                         }
                 }
 
-                return (minFlag || maxFlag);
+                return logger.traceExit(minFlag || maxFlag);
         }
 
         public static int[] findIndexOfLocalExtrema(double[][] mtx) {
+                logger.traceEntry();
+
                 int height = mtx.length;
                 int length = mtx[0].length;
                 int[] res = {-1,-1};
@@ -214,7 +239,7 @@ public class MainTask2 {
                         }
                 }
 
-                return res;
+                return logger.traceExit(res);
         }
 
         /*
@@ -230,12 +255,16 @@ public class MainTask2 {
         }
 
         public static void matrixTransposition(double[][] mtx) {                // так как дополнительную память выделять
-                int length = mtx.length;                                        // нельзя, то работаем только с квадратными
+                logger.traceEntry();                                            // нельзя, то работаем только с квадратными
+
+                int length = mtx.length;
 
                 for (int i = 0; i < length; i++) {
                         for (int j = i+1; j < length; j++) {
                                 swapMtx(mtx,i,j,j,i);
                         }
                 }
+
+                logger.traceExit();
         }
 }

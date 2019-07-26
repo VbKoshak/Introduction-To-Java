@@ -22,7 +22,7 @@ public class MainTaskTest {
         @Test
         public void linearSearch() {
                 double[] arr = {1,2,10,6,5,4,6,7,8,3,4,5};
-                int res = MainTask.linearSearh(arr,3);
+                int res = MainTask.linearSearch(arr,3);
                 assertEquals(9,res);
         }
 
