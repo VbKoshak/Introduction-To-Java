@@ -1,0 +1,28 @@
+14:28:29.708 TRACE task3.MainTask 20 indexOfMaxEl - Enter [1.0, 2.0, 3.0, 4.0, 5.0]
+14:28:29.729 TRACE task3.MainTask 42 indexOfMaxEl - Exit with(4)
+14:30:01.945 TRACE task3.MainTask 20 indexOfMaxEl - Enter [1.0, 2.0, 3.0, 4.0, 5.0]
+14:30:01.958 TRACE task3.MainTask 42 indexOfMaxEl - Exit with(4)
+14:33:36.840 TRACE task3.MainTask 20 indexOfMaxEl - Enter params([D@6c7a164b)
+14:33:36.858 TRACE task3.MainTask 42 indexOfMaxEl - Exit with(4)
+14:38:42.757 TRACE task3.MainTask 20 indexOfMaxEl - Enter [1.0, 2.0, 3.0, 4.0, 5.0]
+14:38:42.766 TRACE task3.MainTask 42 indexOfMaxEl - Exit with(4)
+14:47:34.679 TRACE task3.MainTask 88 findExtrema - Enter [1.0, 2.0, 3.0, 4.0, 5.0, 6.0]
+14:47:34.713 TRACE task3.MainTask 20 indexOfMaxEl - Enter [1.0, 2.0, 3.0, 4.0, 5.0, 6.0]
+14:47:34.716 TRACE task3.MainTask 42 indexOfMaxEl - Exit with(5)
+14:47:34.718 TRACE task3.MainTask 55 indexOfMinEl - Enter [1.0, 2.0, 3.0, 4.0, 5.0, 6.0]
+14:47:34.739 TRACE task3.MainTask 77 indexOfMinEl - Exit with(0)
+14:47:34.740 TRACE task3.MainTask 96 findExtrema - Exit with(50)
+14:48:44.067 TRACE task3.MainTask 88 findExtrema - Enter [1.0, 2.0, 3.0, 4.0, 5.0, 6.0]
+14:48:44.078 TRACE task3.MainTask 20 indexOfMaxEl - Enter [1.0, 2.0, 3.0, 4.0, 5.0, 6.0]
+14:48:44.080 TRACE task3.MainTask 42 indexOfMaxEl - Exit with(5)
+14:48:44.082 TRACE task3.MainTask 55 indexOfMinEl - Enter [1.0, 2.0, 3.0, 4.0, 5.0, 6.0]
+14:48:44.083 TRACE task3.MainTask 77 indexOfMinEl - Exit with(0)
+14:48:44.084 TRACE task3.MainTask 96 findExtrema - Exit with(max: 5
+min: 0 )
+14:49:21.196 TRACE task3.MainTask 88 findExtrema - Enter [1.0, 2.0, 3.0, 4.0, 5.0, 6.0]
+14:49:21.228 TRACE task3.MainTask 20 indexOfMaxEl - Enter [1.0, 2.0, 3.0, 4.0, 5.0, 6.0]
+14:49:21.231 TRACE task3.MainTask 42 indexOfMaxEl - Exit with(5)
+14:49:21.232 TRACE task3.MainTask 55 indexOfMinEl - Enter [1.0, 2.0, 3.0, 4.0, 5.0, 6.0]
+14:49:21.233 TRACE task3.MainTask 77 indexOfMinEl - Exit with(0)
+14:49:21.234 TRACE task3.MainTask 96 findExtrema - Exit with(max: 5
+min: 0 )
