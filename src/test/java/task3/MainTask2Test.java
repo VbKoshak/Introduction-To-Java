@@ -9,7 +9,7 @@ import static org.junit.Assert.*;
 public class MainTask2Test {
 
         private static String getNumsFromString(String str){
-                return str.replaceAll("[^-?0-9*.?0-9?]+", " ");        // выбираем все числа
+                return str.replaceAll("[^-?0-9*.?0-9?]+", " ");        // extracting all numbers
                 /*
                  * change all characters that a not a part of number to whitespace
                  * result is usually like:
