@@ -11,13 +11,13 @@ public class MainTask2Test {
         private static String getNumsFromString(String str){
                 return str.replaceAll("[^-?0-9*.?0-9?]+", " ");        // выбираем все числа
                 /*
-                 * заменяет все символы которые не относятся к числу пробелом
-                 * результирующая строка чаще всего имеет вид:
-                 * пробел в начале и конце строки
-                 * числа разделены пробелом
-                 * пример: " 0 1 2 3 "
-                 * double значения пишутся через точку
-                 * пример: " 1.0 2.0 "
+                 * change all characters that a not a part of number to whitespace
+                 * result is usually like:
+                 * whitespace in the beginning and the end of the string
+                 * numbers are derived with a whitespace as well
+                 * example: " 0 1 2 3 "
+                 * double values use point
+                 * example: " 1.0 2.0 "
                  */
         }
 
@@ -44,8 +44,8 @@ public class MainTask2Test {
                 res = getNumsFromString(res);
 
                 assertTrue(" 1 1 2 2 ".equals(res));
-                // первые два числа - индексы максимального элемента
-                // вторые - минимального
+                // first two numbers - indexes of max element
+                // second two numbers - min element
         }
 
         @Test
