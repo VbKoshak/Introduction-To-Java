@@ -1,4 +1,4 @@
-package task3;
+package by.epam.IntroductionToJava.task3;
 
 import org.junit.Test;
 
@@ -54,6 +54,7 @@ public class MainTask2Test {
                         {1,1},
                         {1,1}
                 };
+
 
                 String res_2 = MainTask2.findExtrema(mtx_2);
                 res_2 = getNumsFromString(res_2);

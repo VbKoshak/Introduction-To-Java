@@ -1,4 +1,4 @@
-package task2;
+package by.epam.IntroductionToJava.task2;
 
 import java.util.Random;
 

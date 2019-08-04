@@ -1,4 +1,4 @@
-package task3;
+package by.epam.IntroductionToJava.task3;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

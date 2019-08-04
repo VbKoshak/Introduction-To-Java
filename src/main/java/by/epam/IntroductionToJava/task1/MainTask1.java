@@ -1,4 +1,4 @@
-package task1;
+package by.epam.IntroductionToJava.task1;
 
 import static java.lang.Double.NaN;
 
