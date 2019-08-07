@@ -1,4 +1,4 @@
-package by.epam.IntroductionToJava.task4.Carriage;
+package by.epam.IntroductionToJava.task4.entity.additionalInfo;
 
 public enum TypeOfHook {
         A,
