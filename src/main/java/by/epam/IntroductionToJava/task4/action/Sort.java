@@ -3,8 +3,10 @@ package by.epam.IntroductionToJava.task4.action;
 import by.epam.IntroductionToJava.task4.entity.Carriage.Carriage;
 import by.epam.IntroductionToJava.task4.entity.additionalInfo.TypeOfHook;
 import by.epam.IntroductionToJava.task4.entity.cargoCarriage.LiquidCarrier;
+import by.epam.IntroductionToJava.task4.entity.passangerCarriage.PassangerCarriageWithRooms;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class Sort {
 
@@ -13,7 +15,8 @@ public class Sort {
         }
 
         public static void sortByYear(Carriage[] arr){
-                Arrays.sort(arr, (o1, o2) -> (o1.getYearOfConstruction() - o2.getYearOfConstruction()));
+                Comparator<Carriage> comparator = (Carriage o1, Carriage o2) -> (o1.getYearOfConstruction() - o2.getYearOfConstruction());
+                Arrays.sort(arr,comparator);
         }
 
         public static void sortByModel(Carriage[] arr){
@@ -21,19 +24,25 @@ public class Sort {
         }
 
         public static void sortByHook(Carriage[] arr){
-                Arrays.sort(arr, (o1,o2) -> (o1.getHook().ordinal() - o2.getHook().ordinal()));
+                Comparator<Carriage> comparator = Comparator.comparing(obj->obj.getHook().ordinal());
+                comparator.thenComparing(obj->obj.getId());
+                Arrays.sort(arr, comparator);
         }
 
         public static void main(String[] args) {
-                Carriage[] arr = new Carriage[2];
-                arr[0] = new Carriage((short)1972,102,20,"Shorter",TypeOfHook.A);
-                arr[1] = new LiquidCarrier((short)1975,208,25,"Transporter S3000",TypeOfHook.B,"Milk",15_200,false,true);
+                Carriage[] arr = new Carriage[3];
+                arr[0] = new Carriage((short)1978,102,2000,"Shorter",TypeOfHook.A);
+                arr[1] = new LiquidCarrier((short)1975,208,2500,"Transporter S3000",TypeOfHook.B,"Milk",15_200,false,true);
+                arr[2] = new PassangerCarriageWithRooms((short)2005,380,4000,"Delurio",TypeOfHook.A,100,34,2);
+
+                sortByYear(arr);
+
+                CarriageShow.show(arr);
 
                 sortByHook(arr);
-                System.out.println(arr[0].getModel());
 
-                for (Carriage car: arr){
-                        System.out.println(car.toString());
-                }
+                CarriageShow.show(arr);
+
+
         }
 }

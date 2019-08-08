@@ -5,7 +5,6 @@ import by.epam.IntroductionToJava.task4.entity.additionalInfo.TypeOfHook;
 public class CargoCarrier extends BasicCarrier {
         private boolean isCovered;
         private boolean hasWalls;
-        private final String className = "Cargo carrier";
 
         public CargoCarrier(short yearOfConstruction, int expencesPerKm, double weightWithoutCargo,
                             String model, TypeOfHook hook, String productName, double maxLoadout, boolean isCovered,

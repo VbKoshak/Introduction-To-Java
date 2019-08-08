@@ -6,7 +6,6 @@ import by.epam.IntroductionToJava.task4.entity.additionalInfo.TypeOfHook;
 public class BasicBaggageCarriage extends Carriage {
         private double spaceForBaggage; // cubic meters
         private double maxLoadout;      // kg
-        private final String className = "Baggage carriage";
 
         public BasicBaggageCarriage(short yearOfConstruction, int expencesPerKm, double weightWithoutCargo,
                                     String model, TypeOfHook hook, double spaceForBaggage, double maxLoadout) {

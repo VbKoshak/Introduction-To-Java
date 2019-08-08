@@ -8,7 +8,6 @@ import java.util.Objects;
 public class BasicCarrier extends Carriage {
         private String productName;
         private double maxLoadout; // liters
-        private final String className = "Carrier base";
 
         public BasicCarrier(short yearOfConstruction, int expencesPerKm, double weightWithoutCargo, String model, TypeOfHook hook, String productName, double maxLoadout) {
                 super(yearOfConstruction, expencesPerKm, weightWithoutCargo, model, hook);

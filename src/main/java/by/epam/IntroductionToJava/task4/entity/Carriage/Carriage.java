@@ -11,7 +11,6 @@ public class Carriage {
         private int id;
         private String model;
         private TypeOfHook hook;
-        private final String className = "Carriage";
 
         static int count;
 
@@ -56,10 +55,10 @@ public class Carriage {
         @Override
         public String toString() {
                 return  "--------------------------\n\n" +
-                        "--\t" + className + "\t--" +
+                        "--\tIdentification\t--" +
                         "\nId: " + id +
                         "\nModel: " + model +
-                        "\n--\tCharacteristics\t--" +
+                        "\n\n--\tCharacteristics\t--" +
                         "\nYear of construction: " + yearOfConstruction +
                         "\nExpences\\Km: " + expencesPerKm +
                         "\nWeight without cargo: "  + weightWithoutCargo + " kg" +

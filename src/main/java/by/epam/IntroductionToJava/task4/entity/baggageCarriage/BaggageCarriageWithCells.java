@@ -6,7 +6,6 @@ public class BaggageCarriageWithCells extends BasicBaggageCarriage {
         private int numberOfCells;
         private int spacePerCell;
         private int maxLoadoutPerCell;
-        private final String className = "Celled baggage carriage";
 
         public BaggageCarriageWithCells(short yearOfConstruction, int expencesPerKm, double weightWithoutCargo,
                                         String model, TypeOfHook hook, int numberOfCells, int spacePerCell,

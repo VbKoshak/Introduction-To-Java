@@ -5,7 +5,6 @@ import by.epam.IntroductionToJava.task4.entity.additionalInfo.TypeOfHook;
 public class LiquidCarrier extends BasicCarrier {
         private boolean isExplosive;
         private boolean isRefregerated;
-        private final String className = "Liquid carrier";
 
         public LiquidCarrier(short yearOfConstruction, int expencesPerKm, double weightWithoutCargo,
                              String model, TypeOfHook hook, String productName, double maxLoadout, boolean isExplosive,

@@ -6,7 +6,6 @@ import by.epam.IntroductionToJava.task4.entity.additionalInfo.TypeOfHook;
 public class RestaurantCarriage extends Carriage {
         private int numberOfSeats;
         private boolean hasBar;
-        private final String className = "Restaurant carriage";
 
         public RestaurantCarriage(short yearOfConstruction, int expencesPerKm, double weightWithoutCargo,
                                   String model, TypeOfHook hook, int numberOfSeats, boolean hasBar) {

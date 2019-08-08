@@ -5,7 +5,6 @@ import by.epam.IntroductionToJava.task4.entity.additionalInfo.TypeOfHook;
 public class PassangerCarriageWithRooms extends BasicPassangerCarriage {
         private int numberOfRooms;
         private int placesPerRoom;
-        private final String className = "Comfortable passenger carriage";
 
         public PassangerCarriageWithRooms(short yearOfConstruction, int expencesPerKm, double weightWithoutCargo, String model, TypeOfHook hook,
                                           int pricePerPlace, int numberOfRooms, int placesPerRoom) {
