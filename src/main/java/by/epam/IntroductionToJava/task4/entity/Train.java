@@ -1,6 +1,6 @@
 package by.epam.IntroductionToJava.task4.entity;
 
-import by.epam.IntroductionToJava.task4.action.CarriageShow;
+import by.epam.IntroductionToJava.task4.action.Show;
 import by.epam.IntroductionToJava.task4.entity.Carriage.Carriage;
 import by.epam.IntroductionToJava.task4.entity.baggageCarriage.BasicBaggageCarriage;
 import by.epam.IntroductionToJava.task4.entity.cargoCarriage.BasicCarrier;
@@ -56,6 +56,20 @@ public class Train {
                 this.locomative = locomative;
         }
 
+        public Train(Locomative L, Carriage C){
+                this.locomative = L;
+                this.carriages = new Carriage[++carriageamount];
+                this.carriages[0] = C;
+        }
+
+        public Train(Locomative L, Carriage[] Cs){
+                this.locomative = L;
+                this.carriages = new Carriage[Cs.length];
+                for (int i = 0; i < Cs.length; i++) {
+                        this.carriages[i] = Cs[i];
+                }
+        }
+
         public void addCarriage(Carriage car){
                 Carriage[] tempCarriages = new Carriage[carriageamount+1];
                 cloneCarriage(carriages,tempCarriages);
@@ -82,7 +96,7 @@ public class Train {
                 System.out.println("--\tSearch Results\t--");
                 for(Carriage car: carriages){
                         if(hasPlacesForPassangers(car) && ((BasicPassangerCarriage)car).getTotalNumberOfPlaces() > requiredNumber){
-                                CarriageShow.show(car);
+                                Show.showCarriage(car);
                                 amount++;
                         }
                 }
@@ -105,15 +119,15 @@ public class Train {
                 return totalBaggageSpace;
         }
 
-        public void showLocomative(){
-                System.out.println(locomative.toString());
-        }
-
-        public void showCarriages() {CarriageShow.show(carriages);}
-
         public Carriage[] getCarriages(){
                 return carriages;
         }
+
+        public Locomative getLocomative() {
+                return locomative;
+        }
+
+        public int getCarriageamount() {return carriageamount;}
 
         @Override
         public boolean equals(Object o) {
@@ -140,10 +154,11 @@ public class Train {
 
         @Override
         public String toString() {
-                return "--\tTrain\t--" +
+                return "Train" +
                        "\n\tTotal cargo loadout: " + getTotalCargoLoadout() +
                        "\n\tTotal baggage loadout: " + getTotalBaggageLoadout() +
                        "\n\tTotal space for baggage: " + getTotalBaggageSpace() +
-                       "\n\tTotal number of places: " + getTotalNumberOfPlaces();
+                       "\n\tTotal number of places: " + getTotalNumberOfPlaces() +
+                       "\n\tNumber of carriages: " + getCarriageamount();
         }
 }
