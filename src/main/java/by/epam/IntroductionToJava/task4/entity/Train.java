@@ -6,6 +6,9 @@ import by.epam.IntroductionToJava.task4.entity.baggageCarriage.BasicBaggageCarri
 import by.epam.IntroductionToJava.task4.entity.cargoCarriage.BasicCarrier;
 import by.epam.IntroductionToJava.task4.entity.passangerCarriage.BasicPassangerCarriage;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 import static by.epam.IntroductionToJava.task4.validators.InstanceValidator.*;
 
 public class Train {
@@ -110,5 +113,37 @@ public class Train {
 
         public Carriage[] getCarriages(){
                 return carriages;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+                if (this == o) return true;
+                if (o == null || getClass() != o.getClass()) return false;
+                Train train = (Train) o;
+                return totalNumberOfPlaces == train.totalNumberOfPlaces &&
+                        Double.compare(train.totalCargoLoadout, totalCargoLoadout) == 0 &&
+                        Double.compare(train.totalBaggageLoadout, totalBaggageLoadout) == 0 &&
+                        Double.compare(train.totalBaggageSpace, totalBaggageSpace) == 0 &&
+                        carriageamount == train.carriageamount &&
+                        Objects.equals(locomative, train.locomative) &&
+                        Arrays.equals(carriages, train.carriages);
+        }
+
+        @Override
+        public int hashCode() {
+                int carHash = 0;
+                for (Carriage car: carriages){
+                        carHash += car.hashCode();
+                }
+                return locomative.hashCode()%carHash;
+        }
+
+        @Override
+        public String toString() {
+                return "--\tTrain\t--" +
+                       "\n\tTotal cargo loadout: " + getTotalCargoLoadout() +
+                       "\n\tTotal baggage loadout: " + getTotalBaggageLoadout() +
+                       "\n\tTotal space for baggage: " + getTotalBaggageSpace() +
+                       "\n\tTotal number of places: " + getTotalNumberOfPlaces();
         }
 }
