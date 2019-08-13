@@ -35,7 +35,7 @@ public class CargoCarrier extends BasicCarrier {
         @Override
         public String toString() {
                 return super.toString() +
-                        "\n" + (isCovered ? "Covered":"Not covered") +
-                        "\n" + (hasWalls ? "Has walls":"No walls");
+                        "\n\t" + (isCovered ? "Covered":"Not covered") +
+                        "\n\t" + (hasWalls ? "Has walls":"No walls");
         }
 }

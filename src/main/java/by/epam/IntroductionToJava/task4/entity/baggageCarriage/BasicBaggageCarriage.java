@@ -40,7 +40,7 @@ public class BasicBaggageCarriage extends Carriage {
         @Override
         public String toString() {
                 return super.toString() +
-                        "\nSpaceForBaggage: " + spaceForBaggage +
-                        "\nMaxLoadout: " + maxLoadout;
+                        "\n\tSpaceForBaggage: " + spaceForBaggage +
+                        "\n\tMaxLoadout: " + maxLoadout;
         }
 }

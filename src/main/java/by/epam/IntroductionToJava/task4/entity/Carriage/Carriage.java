@@ -54,15 +54,14 @@ public class Carriage {
 
         @Override
         public String toString() {
-                return  "--------------------------\n\n" +
-                        "--\tIdentification\t--" +
-                        "\nId: " + id +
-                        "\nModel: " + model +
-                        "\n\n--\tCharacteristics\t--" +
-                        "\nYear of construction: " + yearOfConstruction +
-                        "\nExpences\\Km: " + expencesPerKm +
-                        "\nWeight without cargo: "  + weightWithoutCargo + " kg" +
-                        "\nType of hook: " + hook;
+                return  "\nIdentification" +
+                        "\n\tId: " + id +
+                        "\n\tModel: " + model +
+                        "\nCharacteristics" +
+                        "\n\tYear of construction: " + yearOfConstruction +
+                        "\n\tExpences\\Km: " + expencesPerKm +
+                        "\n\tWeight without cargo: "  + weightWithoutCargo + " kg" +
+                        "\n\tType of hook: " + hook;
         }
 
         @Override

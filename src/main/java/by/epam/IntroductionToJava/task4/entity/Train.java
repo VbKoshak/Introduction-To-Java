@@ -6,23 +6,36 @@ import by.epam.IntroductionToJava.task4.entity.baggageCarriage.BasicBaggageCarri
 import by.epam.IntroductionToJava.task4.entity.cargoCarriage.BasicCarrier;
 import by.epam.IntroductionToJava.task4.entity.passangerCarriage.BasicPassangerCarriage;
 
-import java.util.ArrayList;
-
 import static by.epam.IntroductionToJava.task4.validators.InstanceValidator.*;
 
 public class Train {
         private Locomative locomative;
-        private ArrayList<Carriage> carriages = new ArrayList<Carriage>();
+        private Carriage[] carriages;
         private int totalNumberOfPlaces;
         private double totalCargoLoadout;
         private double totalBaggageLoadout;
         private double totalBaggageSpace;
+        private int carriageamount;
 
         {
+                carriageamount = 0;
+                carriages = new Carriage[0];
                 totalNumberOfPlaces = 0;
                 totalCargoLoadout = 0.0;
                 totalBaggageLoadout = 0.0;
                 totalBaggageSpace = 0.0;
+        }
+
+        private void cloneCarriage(Carriage[] from, Carriage[] to){
+                for (int i = 0; i < from.length; i++){
+                        to[i] = from[i];
+                }
+        }
+        private void cloneCarriage(Carriage[] from, Carriage[] to, int startingFrom){
+                int length = from.length + startingFrom;
+                for (int i = startingFrom,j=0; i < length; i++,j++){
+                        to[i] = from[j];
+                }
         }
 
         private void addInfo(Carriage car){
@@ -41,40 +54,61 @@ public class Train {
         }
 
         public void addCarriage(Carriage car){
-                carriages.add(car);
+                Carriage[] tempCarriages = new Carriage[carriageamount+1];
+                cloneCarriage(carriages,tempCarriages);
+                tempCarriages[carriageamount++] = car;
+                carriages=new Carriage[carriageamount];
+                cloneCarriage(tempCarriages,carriages);
                 addInfo(car);
         }
 
-        public void addCarriage(Carriage[] cars){
-                for (Carriage car: cars){
-                        carriages.add(car);
+        public void addCarriage(Carriage[] cars) {
+                carriageamount += cars.length;
+                Carriage[] tempCarriages = new Carriage[carriageamount];
+                cloneCarriage(carriages, tempCarriages);
+                cloneCarriage(cars, tempCarriages, carriages.length);
+                carriages = new Carriage[carriageamount];
+                cloneCarriage(tempCarriages, carriages);
+                for (Carriage car : cars) {
                         addInfo(car);
                 }
         }
 
-        public void selectCarriagesByPlaces(int requiredNumber) {
+        public int selectCarriagesByPlaces(int requiredNumber) {        //returns number of carriages with more places then required4
+                int amount = 0;
                 System.out.println("--\tSearch Results\t--");
                 for(Carriage car: carriages){
                         if(hasPlacesForPassangers(car) && ((BasicPassangerCarriage)car).getTotalNumberOfPlaces() > requiredNumber){
                                 CarriageShow.show(car);
+                                amount++;
                         }
                 }
+                return amount;
         }
 
         public int getTotalNumberOfPlaces(){
                 return totalNumberOfPlaces;
         }
 
+        public double getTotalCargoLoadout(){
+                return totalCargoLoadout;
+        }
 
+        public double getTotalBaggageLoadout() {
+                return totalBaggageLoadout;
+        }
 
-        public void show(){
-                System.out.println("--\tTrain\t--");
-                System.out.println("\nTotal cargo loadout: " + totalCargoLoadout +
-                        "\nTotal baggage loadout: " + totalBaggageLoadout +
-                        "\nTotal space for baggage: " + totalBaggageSpace +
-                        "\nTotal number of places: " + totalNumberOfPlaces);
+        public double getTotalBaggageSpace() {
+                return totalBaggageSpace;
+        }
+
+        public void showLocomative(){
                 System.out.println(locomative.toString());
-                CarriageShow.show(carriages);
+        }
 
+        public void showCarriages() {CarriageShow.show(carriages);}
+
+        public Carriage[] getCarriages(){
+                return carriages;
         }
 }

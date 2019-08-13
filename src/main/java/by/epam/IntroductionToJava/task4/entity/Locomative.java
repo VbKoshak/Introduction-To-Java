@@ -35,9 +35,8 @@ public class Locomative {
 
         @Override
         public String toString() {
-                return "--------------------------\n\n" +
-                        "--\tLocomative\t--" +
-                        "\nModel: " + model +
-                        "\nPower: " + power + " hp";
+                return  "Locomative" +
+                        "\n\tModel: " + model +
+                        "\n\tPower: " + power + " hp";
         }
 }

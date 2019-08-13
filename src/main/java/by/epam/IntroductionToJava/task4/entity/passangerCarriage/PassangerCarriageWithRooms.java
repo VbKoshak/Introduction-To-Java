@@ -34,7 +34,7 @@ public class PassangerCarriageWithRooms extends BasicPassangerCarriage {
         @Override
         public String toString() {
                 return super.toString() +
-                        "\nNumber of rooms: " + numberOfRooms +
-                        "\nPlaces per room: " + placesPerRoom;
+                        "\n\tNumber of rooms: " + numberOfRooms +
+                        "\n\tPlaces per room: " + placesPerRoom;
         }
 }

@@ -42,7 +42,7 @@ public class BasicPassangerCarriage extends Carriage {
         @Override
         public String toString() {
                 return super.toString() +
-                        "\nTotal number of places: " + totalNumberOfPlaces +
-                        "\nPrice per place: " + pricePerPlace;
+                        "\n\tTotal number of places: " + totalNumberOfPlaces +
+                        "\n\tPrice per place: " + pricePerPlace;
         }
 }

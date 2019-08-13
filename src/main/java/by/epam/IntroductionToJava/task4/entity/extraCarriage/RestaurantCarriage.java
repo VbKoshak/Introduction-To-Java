@@ -38,7 +38,7 @@ public class RestaurantCarriage extends Carriage {
         @Override
         public String toString() {
                 return super.toString() +
-                        "\nNumber of seats: " + numberOfSeats +
-                        "\n" + (hasBar ? "Has bar" : "Do not have bar");
+                        "\n\tNumber of seats: " + numberOfSeats +
+                        "\n\t" + (hasBar ? "Has bar" : "Do not have bar");
         }
 }

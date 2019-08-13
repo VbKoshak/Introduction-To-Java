@@ -35,7 +35,7 @@ public class LiquidCarrier extends BasicCarrier {
         @Override
         public String toString() {
                 return super.toString() +
-                        "\n" + (isExplosive ? "Explosive":"Not explosive") +
-                        "\n" + (isRefregerated ? "Refregerated": "Not refregerated");
+                        "\n\t" + (isExplosive ? "Explosive":"Not explosive") +
+                        "\n\t" + (isRefregerated ? "Refregerated": "Not refregerated");
         }
 }

@@ -26,8 +26,8 @@ public class BasicCarrier extends Carriage {
         @Override
         public String toString() {
                 return super.toString() +
-                        "\nProduct name: " + productName +
-                        "\nMax loadout: " + maxLoadout + " kg";
+                        "\n\tProduct name: " + productName +
+                        "\n\tMax loadout: " + maxLoadout + " kg";
         }
 
         @Override

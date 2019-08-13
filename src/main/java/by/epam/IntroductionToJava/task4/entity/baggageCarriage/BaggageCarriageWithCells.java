@@ -43,8 +43,8 @@ public class BaggageCarriageWithCells extends BasicBaggageCarriage {
         @Override
         public String toString() {
                 return super.toString() +
-                        "\nNumber of cells: " + numberOfCells +
-                        "\nSpace per cell: " + spacePerCell +
-                        "\nMax loadout per cell: " + maxLoadoutPerCell;
+                        "\n\tNumber of cells: " + numberOfCells +
+                        "\n\tSpace per cell: " + spacePerCell +
+                        "\n\tMax loadout per cell: " + maxLoadoutPerCell;
         }
 }
