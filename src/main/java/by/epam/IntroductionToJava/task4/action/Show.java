@@ -4,6 +4,8 @@ import by.epam.IntroductionToJava.task4.entity.Carriage.Carriage;
 import by.epam.IntroductionToJava.task4.entity.Locomative;
 import by.epam.IntroductionToJava.task4.entity.Train;
 
+import static by.epam.IntroductionToJava.task4.validators.InstanceValidator.*;
+
 public class Show {
 
         private final static String LINE = "--\t--\t--";
@@ -40,5 +42,34 @@ public class Show {
 
         public static void showCarriage(Carriage car){
                 System.out.println(car.toString());
+        }
+
+        public static void showInfoAboutCarriages(Train T){
+
+                int baggageCarriageAmount = 0;
+                int cargoCarriageAmount = 0;
+                int passangerCarriageAmout = 0;
+                int others = 0;
+
+                for (Carriage car: T.getCarriages()){
+                        if (hasPlaceForCargo(car)){
+                                cargoCarriageAmount++;
+                        } else if (hasPlacesForPassangers(car)){
+                                passangerCarriageAmout++;
+                        } else if (hasPlacesForBaggage(car)){
+                                baggageCarriageAmount++;
+                        } else {
+                                others++;
+                        }
+                }
+
+
+                System.out.println(
+                        "Total amount of carriages: " + T.getCarriageamount() +
+                        "\n\tCargo carriers: " + cargoCarriageAmount +
+                        "\n\tPassanger transporters: " + passangerCarriageAmout +
+                        "\n\tBaggage carriers: " + baggageCarriageAmount +
+                        "\n\tOther carriaages: " + others
+                        );
         }
 }
