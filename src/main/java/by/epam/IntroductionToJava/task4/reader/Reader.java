@@ -2,9 +2,12 @@ package by.epam.IntroductionToJava.task4.reader;
 
 import by.epam.IntroductionToJava.task4.action.Show;
 import by.epam.IntroductionToJava.task4.entity.Train;
+import by.epam.IntroductionToJava.task4.validators.WrongInputException;
 
 import java.io.FileReader;
 import java.io.IOException;
+
+import static by.epam.IntroductionToJava.task4.validators.constructorInstructionsValidator.checkInstructions;
 
 public class Reader {
 
@@ -33,11 +36,20 @@ public class Reader {
                 return mtx;
         }
 
+//        public static Train buildTrainFromFile(String filename){
+//
+//        }
+
         public static void main(String[] args) {
                 String line = Reader.readFile("example.txt");
-                System.out.println(line);
                 String[][] constructorInstructions = getConstructorIntructions(line);
-                Train T = Factory.createTrain(constructorInstructions);
-                Show.showTrain(T);
+                try{
+                        checkInstructions(constructorInstructions);
+                        Train T = Factory.createTrain(constructorInstructions);
+                        Show.showTrain(T);
+                } catch (WrongInputException ex){
+                        System.out.println(ex.getMessage());
+                        System.out.println("on line: " + ex.getLine());
+                }
         }
 }

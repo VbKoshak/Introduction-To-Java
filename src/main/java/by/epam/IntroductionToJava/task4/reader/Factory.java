@@ -135,6 +135,9 @@ public class Factory {
                                                 toInt(constructorInstructions[i][8])
                                         ));
                                         break;
+                                case "--":
+                                        //TODO add logger for ignoring line
+                                        break;
                         }
                 }
                 return T;

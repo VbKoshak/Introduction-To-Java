@@ -17,6 +17,8 @@ Id accordint to carriage type:
     040 - simple passanger carriage
     041 - passanger carriage with rooms
 
+    -- is used for ignored lines
+
 Types of hook can be:
     A
     B
