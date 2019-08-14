@@ -2,9 +2,9 @@ package by.epam.IntroductionToJava.task4.entity;
 
 import by.epam.IntroductionToJava.task4.action.Show;
 import by.epam.IntroductionToJava.task4.entity.Carriage.Carriage;
-import by.epam.IntroductionToJava.task4.entity.baggageCarriage.BasicBaggageCarriage;
+import by.epam.IntroductionToJava.task4.entity.baggageCarriage.BaggageCarriage;
 import by.epam.IntroductionToJava.task4.entity.cargoCarriage.BasicCarrier;
-import by.epam.IntroductionToJava.task4.entity.passangerCarriage.BasicPassangerCarriage;
+import by.epam.IntroductionToJava.task4.entity.passangerCarriage.PassangerCarriage;
 
 import java.util.Arrays;
 import java.util.Objects;
@@ -43,12 +43,12 @@ public class Train {
 
         private void addInfo(Carriage car){
                 if(hasPlacesForPassangers(car)) {
-                        totalNumberOfPlaces += ((BasicPassangerCarriage) car).getTotalNumberOfPlaces();
+                        totalNumberOfPlaces += ((PassangerCarriage) car).getTotalNumberOfPlaces();
                 } else if (hasPlaceForCargo(car)){
                         totalCargoLoadout += ((BasicCarrier) car).getMaxLoadout();
                 } else if (hasPlacesForBaggage(car)) {
-                        totalBaggageLoadout += ((BasicBaggageCarriage) car).getMaxLoadout();
-                        totalBaggageSpace += ((BasicBaggageCarriage) car).getSpaceForBaggage();
+                        totalBaggageLoadout += ((BaggageCarriage) car).getMaxLoadout();
+                        totalBaggageSpace += ((BaggageCarriage) car).getSpaceForBaggage();
                 }
         }
 
@@ -95,7 +95,7 @@ public class Train {
                 int amount = 0;
                 System.out.println("--\tSearch Results\t--");
                 for(Carriage car: carriages){
-                        if(hasPlacesForPassangers(car) && ((BasicPassangerCarriage)car).getTotalNumberOfPlaces() > requiredNumber){
+                        if(hasPlacesForPassangers(car) && ((PassangerCarriage)car).getTotalNumberOfPlaces() > requiredNumber){
                                 Show.showCarriage(car);
                                 amount++;
                         }

@@ -2,7 +2,7 @@ package by.epam.IntroductionToJava.task4.entity.baggageCarriage;
 
 import by.epam.IntroductionToJava.task4.entity.additionalInfo.TypeOfHook;
 
-public class BaggageCarriageWithCells extends BasicBaggageCarriage {
+public class BaggageCarriageWithCells extends BaggageCarriage {
         private int numberOfCells;
         private int spacePerCell;
         private int maxLoadoutPerCell;

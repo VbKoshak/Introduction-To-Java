@@ -4,7 +4,7 @@ import by.epam.IntroductionToJava.task4.entity.additionalInfo.TypeOfHook;
 
 import java.util.Objects;
 
-public class Carriage {
+public abstract class Carriage {
         private short yearOfConstruction;
         private int expencesPerKm;
         private double weightWithoutCargo; // kg
@@ -12,7 +12,7 @@ public class Carriage {
         private String model;
         private TypeOfHook hook;
 
-        static int count;
+        private static int count;
 
         static {
                 count  = 1;

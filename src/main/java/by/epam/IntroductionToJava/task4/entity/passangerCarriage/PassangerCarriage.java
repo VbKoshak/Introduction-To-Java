@@ -3,12 +3,12 @@ package by.epam.IntroductionToJava.task4.entity.passangerCarriage;
 import by.epam.IntroductionToJava.task4.entity.Carriage.Carriage;
 import by.epam.IntroductionToJava.task4.entity.additionalInfo.TypeOfHook;
 
-public class BasicPassangerCarriage extends Carriage {
+public class PassangerCarriage extends Carriage {
         private int totalNumberOfPlaces;
         private int pricePerPlace;
 
-        public BasicPassangerCarriage(short yearOfConstruction, int expencesPerKm, double weightWithoutCargo,
-                                      String model, TypeOfHook hook, int totalNumberOfPlaces, int pricePerPlace) {
+        public PassangerCarriage(short yearOfConstruction, int expencesPerKm, double weightWithoutCargo,
+                                 String model, TypeOfHook hook, int totalNumberOfPlaces, int pricePerPlace) {
                 super(yearOfConstruction, expencesPerKm, weightWithoutCargo, model, hook);
                 this.totalNumberOfPlaces = totalNumberOfPlaces;
                 this.pricePerPlace = pricePerPlace;
@@ -34,7 +34,7 @@ public class BasicPassangerCarriage extends Carriage {
                 if (this == o) return true;
                 if (o == null || getClass() != o.getClass()) return false;
                 if (!super.equals(o)) return false;
-                BasicPassangerCarriage that = (BasicPassangerCarriage) o;
+                PassangerCarriage that = (PassangerCarriage) o;
                 return totalNumberOfPlaces == that.totalNumberOfPlaces &&
                         pricePerPlace == that.pricePerPlace;
         }

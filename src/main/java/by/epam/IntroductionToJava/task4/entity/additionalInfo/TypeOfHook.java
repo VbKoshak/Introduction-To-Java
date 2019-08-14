@@ -4,5 +4,6 @@ public enum TypeOfHook {
         A,
         B,
         C,
-        D
+        D,
+        I
 }

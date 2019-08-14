@@ -2,7 +2,7 @@ package by.epam.IntroductionToJava.task4.entity.passangerCarriage;
 
 import by.epam.IntroductionToJava.task4.entity.additionalInfo.TypeOfHook;
 
-public class PassangerCarriageWithRooms extends BasicPassangerCarriage {
+public class PassangerCarriageWithRooms extends PassangerCarriage {
         private int numberOfRooms;
         private int placesPerRoom;
 

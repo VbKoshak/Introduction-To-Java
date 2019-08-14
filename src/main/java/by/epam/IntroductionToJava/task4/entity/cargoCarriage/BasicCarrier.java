@@ -5,7 +5,7 @@ import by.epam.IntroductionToJava.task4.entity.additionalInfo.TypeOfHook;
 
 import java.util.Objects;
 
-public class BasicCarrier extends Carriage {
+public abstract class BasicCarrier extends Carriage {
         private String productName;
         private double maxLoadout; // liters
 

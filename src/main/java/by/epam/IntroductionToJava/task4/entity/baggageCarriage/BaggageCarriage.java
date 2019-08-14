@@ -3,12 +3,12 @@ package by.epam.IntroductionToJava.task4.entity.baggageCarriage;
 import by.epam.IntroductionToJava.task4.entity.Carriage.Carriage;
 import by.epam.IntroductionToJava.task4.entity.additionalInfo.TypeOfHook;
 
-public class BasicBaggageCarriage extends Carriage {
+public class BaggageCarriage extends Carriage {
         private double spaceForBaggage; // cubic meters
         private double maxLoadout;      // kg
 
-        public BasicBaggageCarriage(short yearOfConstruction, int expencesPerKm, double weightWithoutCargo,
-                                    String model, TypeOfHook hook, double spaceForBaggage, double maxLoadout) {
+        public BaggageCarriage(short yearOfConstruction, int expencesPerKm, double weightWithoutCargo,
+                               String model, TypeOfHook hook, double spaceForBaggage, double maxLoadout) {
                 super(yearOfConstruction, expencesPerKm, weightWithoutCargo, model, hook);
                 this.spaceForBaggage = spaceForBaggage;
                 this.maxLoadout = maxLoadout;
@@ -27,14 +27,14 @@ public class BasicBaggageCarriage extends Carriage {
                 if (this == o) return true;
                 if (o == null || getClass() != o.getClass()) return false;
                 if (!super.equals(o)) return false;
-                BasicBaggageCarriage that = (BasicBaggageCarriage) o;
+                BaggageCarriage that = (BaggageCarriage) o;
                 return Double.compare(that.spaceForBaggage, spaceForBaggage) == 0 &&
                         Double.compare(that.maxLoadout, maxLoadout) == 0;
         }
 
         @Override
         public int hashCode() {
-                return Integer.parseInt("01" + super.hashCode());
+                return Integer.parseInt("03" + super.hashCode());
         }
 
         @Override
