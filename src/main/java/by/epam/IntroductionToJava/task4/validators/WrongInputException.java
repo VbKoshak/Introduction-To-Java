@@ -1,6 +1,6 @@
 package by.epam.IntroductionToJava.task4.validators;
 
-public class WrongInputException extends Exception {
+public class WrongInputException extends Exception{
         private int line;
         private String type;
 

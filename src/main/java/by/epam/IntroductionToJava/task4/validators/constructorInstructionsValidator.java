@@ -1,15 +1,21 @@
 package by.epam.IntroductionToJava.task4.validators;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class constructorInstructionsValidator {
+        private static final Logger logger = LogManager.getLogger("VALIDATOR");
 
         private static boolean isYear(String s){
                 boolean result = true;
                 try{
                         int year = Integer.parseInt(s);
                         if (year < 1500 || year > 3000){
+                                logger.error("Year is impossible");
                                 result = false;
                         }
                 } catch(Exception e) {
+                        logger.error(e);
                         result = false;
                 }
                 return result;
@@ -20,6 +26,7 @@ public class constructorInstructionsValidator {
                 try{
                         int a = Integer.parseInt(s);
                 } catch (Exception ex){
+                        logger.error(ex);
                         result = false;
                 }
                 return result;
@@ -30,6 +37,7 @@ public class constructorInstructionsValidator {
                 try{
                         double d = Double.parseDouble(s);
                 } catch(Exception e){
+                        logger.error(e);
                         result = false;
                 }
                 return result;
@@ -63,7 +71,7 @@ public class constructorInstructionsValidator {
                         if (instructionLine.length < 3){
                                 result = false;
                         } else if (instructionLine.length > 3){
-                                //TODO add logger to warn about deleting lines
+                                logger.info("Too many parameters, the odd one will be deleted");
                         }
                         if (instructionLine[0].length() == 0) {
                                 result = false;
@@ -74,7 +82,7 @@ public class constructorInstructionsValidator {
                         }
                 } catch (Exception ex){
                         result = false;
-                        System.out.println(ex.getMessage());
+                        logger.error(ex);
                 }
                 return result;
         }
@@ -98,7 +106,7 @@ public class constructorInstructionsValidator {
         }
 
         private static boolean checkBaggageCarriages(String[] instructionLine){
-                boolean result = true;
+                boolean result;
                 switch(instructionLine[0]){
                         case "010":
                                 result = ((instructionLine.length == 8) &&
@@ -121,7 +129,7 @@ public class constructorInstructionsValidator {
         }
 
         private static boolean checkCargoCarriages(String[] instructionLine){
-                boolean result = true;
+                boolean result;
                 if(instructionLine.length < 8){
                         result =  false;
                 } else {
@@ -146,7 +154,7 @@ public class constructorInstructionsValidator {
         }
 
         private static boolean checkExtraCarriages(String[] instructionLine){
-                boolean result = true;
+                boolean result;
                 switch(instructionLine[0]){
                         case "030":
                                 result = ((instructionLine.length == 8) &&
@@ -185,23 +193,31 @@ public class constructorInstructionsValidator {
         }
 
         private static void disableLine(String[][] instructions, int line){
-                //TODO add logger saying that id is not recognised and line skipped
+                logger.info("Line #" + (i+1) + " can not be read and will be skipped");
                 instructions[line][0] = "--";
         }
 
         //TODO add possibility to add some trains in one file
         //as locomative is necessary for building train it throws exceptions unlike carriages that will be just ignored
         public static void checkInstructions(String[][] instructions) throws WrongInputException {
+                logger.traceEntry();
+                String errorMsg;
                 if(!instructions[0][0].equals("00")){
-                        throw new WrongInputException("Instructions should start with creating locomative", 1, "ERR");
+                        errorMsg ="Instructions should start with creating locomative";
+                        logger.error(errorMsg);
+                        throw new WrongInputException(errorMsg, 1, "ERR");
                 }
                 for (int i = 1; i < instructions.length;i++){
+                        errorMsg = "One file for one train, one locomative per train";
+                        logger.error(errorMsg);
                         if (instructions[i][0].equals("00")) {
-                                throw new WrongInputException("One file for one train, one locomative per train", i, "ERR");
+                                throw new WrongInputException(errorMsg, i, "ERR");
                         }
                 }
                 if(!checkLocomative(instructions[0])){
-                        throw new WrongInputException("Locamative description is not full or incorrect, train can not be build",1 ,"ERR");
+                        errorMsg = "Locamative description is not full or incorrect, train can not be build";
+                        logger.error(errorMsg);
+                        throw new WrongInputException(errorMsg,1 ,"ERR");
                 }
                 for (int i = 1; i < instructions.length; i++){
                         if (checkCommon(instructions[i])) { // check common param's ignoring id
@@ -223,7 +239,7 @@ public class constructorInstructionsValidator {
                                                 canBeRead = checkPassangerCarriages(instructions[i]);
                                                 break;
                                         case "--":
-                                                //TODO add logger saying that line is ignored
+                                                logger.info("line #" + (i+1) + " will be ignored");
                                                 break;
                                         default:
                                                 disableLine(instructions,i);

@@ -10,24 +10,25 @@ import by.epam.IntroductionToJava.task4.entity.cargoCarriage.LiquidCarrier;
 import by.epam.IntroductionToJava.task4.entity.extraCarriage.RestaurantCarriage;
 import by.epam.IntroductionToJava.task4.entity.passangerCarriage.PassangerCarriage;
 import by.epam.IntroductionToJava.task4.entity.passangerCarriage.PassangerCarriageWithRooms;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class Factory {
+
+        private static final Logger logger = LogManager.getLogger("FACTORY");
 
         private static short toShort(String s){
                 return (short)Integer.parseInt(s);
         }
-
         private static int toInt(String s){
                 return Integer.parseInt(s);
         }
-
         private static double toDouble(String s) {
                 return Double.parseDouble(s);
         }
         private static boolean toBool(String s) {
                 return ("+".equals(s));
         }
-
         private static TypeOfHook toHook(String s) {
                 switch (s) {
                         case "A":
@@ -42,12 +43,12 @@ public class Factory {
                                 return TypeOfHook.I;
                 }
         }
-
         private static String toProperString(String s) {
                 return s.replace("_"," ");
         }
 
         public static Train createTrain (String[][] constructorInstructions) {
+                logger.traceEntry();
                 Locomative L = new Locomative(constructorInstructions[0][1],toInt(constructorInstructions[0][2].trim()));
                 Train T = new Train(L);
 
@@ -140,7 +141,7 @@ public class Factory {
                                         ));
                                         break;
                                 case "--":
-                                        //TODO add logger for ignoring line
+                                        logger.info("Line #" + (i+1) + " will be skipped");
                                         break;
                         }
                 }
