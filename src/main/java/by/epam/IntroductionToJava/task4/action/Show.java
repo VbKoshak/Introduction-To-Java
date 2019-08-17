@@ -36,7 +36,9 @@ public class Show {
                 System.out.println(LINE);
                 T.toString();
                 showLocomative(T);
-                showCarriages(T);
+                if (T.getCarriageamount() > 0) {
+                        showCarriages(T);
+                }
                 System.out.println(LINE);
         }
 

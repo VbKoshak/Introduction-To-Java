@@ -60,6 +60,11 @@ public class constructorInstructionsValidator {
         private static boolean checkLocomative(String[] instructionLine){
                 boolean result = true;
                 try{
+                        if (instructionLine.length < 3){
+                                result = false;
+                        } else if (instructionLine.length > 3){
+                                //TODO add logger to warn about deleting lines
+                        }
                         if (instructionLine[0].length() == 0) {
                                 result = false;
                         }
@@ -179,22 +184,24 @@ public class constructorInstructionsValidator {
                 return result;
         }
 
+        private static void disableLine(String[][] instructions, int line){
+                //TODO add logger saying that id is not recognised and line skipped
+                instructions[line][0] = "--";
+        }
+
         //TODO add possibility to add some trains in one file
         //as locomative is necessary for building train it throws exceptions unlike carriages that will be just ignored
-        public static void checkInstructions(String[][] instructions) throws WrongInputException{
-                if(instructions.length == 0){
-                        throw new WrongInputException("Instructions can not be empty", 0);
-                }
+        public static void checkInstructions(String[][] instructions) throws WrongInputException {
                 if(!instructions[0][0].equals("00")){
-                        throw new WrongInputException("Instructions should start with creating locomative", 0);
+                        throw new WrongInputException("Instructions should start with creating locomative", 1, "ERR");
                 }
                 for (int i = 1; i < instructions.length;i++){
                         if (instructions[i][0].equals("00")) {
-                                throw new WrongInputException("One file for one train, one locomative per train", i);
+                                throw new WrongInputException("One file for one train, one locomative per train", i, "ERR");
                         }
                 }
                 if(!checkLocomative(instructions[0])){
-                        throw new WrongInputException("Locamative description is not full or incorrect, train can not be build",0);
+                        throw new WrongInputException("Locamative description is not full or incorrect, train can not be build",1 ,"ERR");
                 }
                 for (int i = 1; i < instructions.length; i++){
                         if (checkCommon(instructions[i])) { // check common param's ignoring id
@@ -219,13 +226,15 @@ public class constructorInstructionsValidator {
                                                 //TODO add logger saying that line is ignored
                                                 break;
                                         default:
-                                                //TODO add logger saying that id is not recognised and line skiped
+                                                disableLine(instructions,i);
                                                 break;
                                 }
                                 //if it can not be scanned we change it's id, not to scan it when creating carriages
                                 if (!canBeRead){
-                                        instructions[i][0] = "--";
+                                        disableLine(instructions,i);
                                 }
+                        } else {
+                                disableLine(instructions,i);
                         }
                 }
 

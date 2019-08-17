@@ -1,8 +1,10 @@
+Rules for setup file
+
 1) Each string means new carriage
 2) Train should start with the creation of the locomative
 3) Each type of carriages have their own id's that should be in the beggining of the string
 
-Id accordint to carriage type:
+Id according to carriage type:
 - locomative
     00
 - baggage carriages
@@ -28,7 +30,7 @@ Types of hook can be:
 
 List of required parametrs:
     * use space to separate parametres
-    * if you want to use space in string parametr use underscore
+    * if you want to use space( ) in string parametr use underscore(_), it will be replaced
     * parameters with ? in the end have only 2 options: ( + ) if true, ( - ) if false
 
     for all: Year of construction | expences per km | weight without cargo (cg) | model(string) | Type of hook

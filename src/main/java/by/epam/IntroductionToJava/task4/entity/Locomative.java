@@ -19,6 +19,11 @@ public class Locomative {
                 this.power = power;
         }
 
+        public Locomative(){
+                this.model = "unknown";
+                this.power = 0;
+        }
+
         @Override
         public boolean equals(Object o) {
                 if (this == o) return true;

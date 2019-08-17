@@ -21,6 +21,7 @@ public class Train {
         private int carriageamount;
 
         {
+                locomative = new Locomative();
                 carriageamount = 0;
                 carriages = new Carriage[0];
                 totalNumberOfPlaces = 0;
@@ -68,6 +69,10 @@ public class Train {
                 for (int i = 0; i < Cs.length; i++) {
                         this.carriages[i] = Cs[i];
                 }
+        }
+
+        public Train(){
+                return;
         }
 
         public void addCarriage(Carriage car){

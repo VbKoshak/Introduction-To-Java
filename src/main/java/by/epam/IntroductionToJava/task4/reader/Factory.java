@@ -43,6 +43,10 @@ public class Factory {
                 }
         }
 
+        private static String toProperString(String s) {
+                return s.replace("_"," ");
+        }
+
         public static Train createTrain (String[][] constructorInstructions) {
                 Locomative L = new Locomative(constructorInstructions[0][1],toInt(constructorInstructions[0][2].trim()));
                 Train T = new Train(L);
@@ -54,7 +58,7 @@ public class Factory {
                                                 toShort(constructorInstructions[i][1]),
                                                 toInt(constructorInstructions[i][2]),
                                                 toDouble(constructorInstructions[i][3]),
-                                                constructorInstructions[i][4],
+                                                toProperString(constructorInstructions[i][4]),
                                                 toHook(constructorInstructions[i][5]),
                                                 toDouble(constructorInstructions[i][6]),
                                                 toDouble(constructorInstructions[i][7])
@@ -65,7 +69,7 @@ public class Factory {
                                                 toShort(constructorInstructions[i][1]),
                                                 toInt(constructorInstructions[i][2]),
                                                 toDouble(constructorInstructions[i][3]),
-                                                constructorInstructions[i][4],
+                                                toProperString(constructorInstructions[i][4]),
                                                 toHook(constructorInstructions[i][5]),
                                                 toInt(constructorInstructions[i][6]),
                                                 toInt(constructorInstructions[i][7]),
@@ -78,9 +82,9 @@ public class Factory {
                                                 toShort(constructorInstructions[i][1]),
                                                 toInt(constructorInstructions[i][2]),
                                                 toDouble(constructorInstructions[i][3]),
-                                                constructorInstructions[i][4],
+                                                toProperString(constructorInstructions[i][4]),
                                                 toHook(constructorInstructions[i][5]),
-                                                constructorInstructions[i][6],
+                                                toProperString(constructorInstructions[i][6]),
                                                 toDouble(constructorInstructions[i][7]),
                                                 toBool(constructorInstructions[i][8]),
                                                 toBool(constructorInstructions[i][9])
@@ -91,9 +95,9 @@ public class Factory {
                                                 toShort(constructorInstructions[i][1]),
                                                 toInt(constructorInstructions[i][2]),
                                                 toDouble(constructorInstructions[i][3]),
-                                                constructorInstructions[i][4],
+                                                toProperString(constructorInstructions[i][4]),
                                                 toHook(constructorInstructions[i][5]),
-                                                constructorInstructions[i][6],
+                                                toProperString(constructorInstructions[i][6]),
                                                 toDouble(constructorInstructions[i][7]),
                                                 toBool(constructorInstructions[i][8]),
                                                 toBool(constructorInstructions[i][9])
@@ -105,7 +109,7 @@ public class Factory {
                                                 toShort(constructorInstructions[i][1]),
                                                 toInt(constructorInstructions[i][2]),
                                                 toDouble(constructorInstructions[i][3]),
-                                                constructorInstructions[i][4],
+                                                toProperString(constructorInstructions[i][4]),
                                                 toHook(constructorInstructions[i][5]),
                                                 toInt(constructorInstructions[i][6]),
                                                 toBool(constructorInstructions[i][7])
@@ -117,7 +121,7 @@ public class Factory {
                                                 toShort(constructorInstructions[i][1]),
                                                 toInt(constructorInstructions[i][2]),
                                                 toDouble(constructorInstructions[i][3]),
-                                                constructorInstructions[i][4],
+                                                toProperString(constructorInstructions[i][4]),
                                                 toHook(constructorInstructions[i][5]),
                                                 toInt(constructorInstructions[i][6]),
                                                 toInt(constructorInstructions[i][7])
@@ -128,7 +132,7 @@ public class Factory {
                                                 toShort(constructorInstructions[i][1]),
                                                 toInt(constructorInstructions[i][2]),
                                                 toDouble(constructorInstructions[i][3]),
-                                                constructorInstructions[i][4],
+                                                toProperString(constructorInstructions[i][4]),
                                                 toHook(constructorInstructions[i][5]),
                                                 toInt(constructorInstructions[i][6]),
                                                 toInt(constructorInstructions[i][7]),
