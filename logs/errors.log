@@ -1,0 +1,3 @@
+14:32:43.358 ERROR by.epam.IntroductionToJava.task4.validators.constructorInstructionsValidator 18 isYear - java.lang.NumberFormatException: For input string: "ABS"
+14:32:43.361 INFO  by.epam.IntroductionToJava.task4.validators.constructorInstructionsValidator 196 disableLine - Line #2 can not be read 
+14:32:43.363 INFO  by.epam.IntroductionToJava.task4.reader.Factory 149 createTrain - Line #2 will be skipped

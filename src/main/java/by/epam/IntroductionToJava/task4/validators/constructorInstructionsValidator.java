@@ -193,7 +193,7 @@ public class constructorInstructionsValidator {
         }
 
         private static void disableLine(String[][] instructions, int line){
-                logger.info("Line #" + (i+1) + " can not be read and will be skipped");
+                logger.info("Line #" + (line+1) + " can not be read ");
                 instructions[line][0] = "--";
         }
 
@@ -208,9 +208,9 @@ public class constructorInstructionsValidator {
                         throw new WrongInputException(errorMsg, 1, "ERR");
                 }
                 for (int i = 1; i < instructions.length;i++){
-                        errorMsg = "One file for one train, one locomative per train";
-                        logger.error(errorMsg);
                         if (instructions[i][0].equals("00")) {
+                                errorMsg = "One file for one train, one locomative per train";
+                                logger.error(errorMsg);
                                 throw new WrongInputException(errorMsg, i, "ERR");
                         }
                 }

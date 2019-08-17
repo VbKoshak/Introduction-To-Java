@@ -10,11 +10,16 @@ import by.epam.IntroductionToJava.task4.entity.cargoCarriage.LiquidCarrier;
 import by.epam.IntroductionToJava.task4.entity.extraCarriage.RestaurantCarriage;
 import by.epam.IntroductionToJava.task4.entity.passangerCarriage.PassangerCarriage;
 import by.epam.IntroductionToJava.task4.entity.passangerCarriage.PassangerCarriageWithRooms;
+import by.epam.IntroductionToJava.task4.validators.WrongInputException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class Factory {
+import static by.epam.IntroductionToJava.task4.reader.Reader.getConstructorIntructions;
+import static by.epam.IntroductionToJava.task4.validators.constructorInstructionsValidator.checkInstructions;
 
+
+public class Factory {
+        private static String FILE_PATH = "src/main/java/by/epam/IntroductionToJava/task4/inputFiles/";
         private static final Logger logger = LogManager.getLogger("FACTORY");
 
         private static short toShort(String s){
@@ -146,6 +151,26 @@ public class Factory {
                         }
                 }
                 return T;
+        }
+
+        public static Train buildTrainFromFile(String filename){
+                logger.traceEntry(filename);
+                Train T = new Train();
+                try {
+                        String line = Reader.readFile(FILE_PATH + filename);
+                        String[][] constructorInstructions = getConstructorIntructions(line);
+                        checkInstructions(constructorInstructions);
+                        T = Factory.createTrain(constructorInstructions);
+                } catch (WrongInputException ex){
+                        logger.error(ex);
+                        System.out.println(ex.getType() + ": " + ex.getMessage());
+                        System.out.println("\ton line: " + ex.getLine());
+                } catch (Exception ex){
+                        logger.error(ex);
+                        System.out.println(ex.getMessage());
+                } finally {
+                        return logger.traceExit(T);
+                }
         }
 
 }

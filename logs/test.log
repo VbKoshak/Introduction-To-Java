@@ -1,2 +1,0 @@
-12:50:40.351 TRACE by.epam.IntroductionToJava.task3.MainTask 214 findIndexOfLocalExtrema - Enter [1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0]
-12:50:40.361 TRACE by.epam.IntroductionToJava.task3.MainTask 241 findIndexOfLocalExtrema - Exit with(-1)
