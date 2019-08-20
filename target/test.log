@@ -1,0 +1,2 @@
+14:24:44.080 TRACE task3.MainTask 20 indexOfMaxEl - Enter [1.0, 2.0, 3.0, 4.0, 5.0]
+14:24:44.147 TRACE task3.MainTask 42 indexOfMaxEl - Exit with(4)

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="error">
+    <Appenders>
+        <Console name="STDOUT">
+            <ThresholdFilter level="debug" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="%d{HH:mm:ss}  %msg%n"/>
+        </Console>
+        <File name="errorlog" fileName="logs/errors.log" append="false">
+            <ThresholdFilter level="debug" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level %class{36} %L %M - %msg%xEx%n"/>
+        </File>
+        <File name="infolog" filename="logs/info.log" append="false">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level %class{36} %L %M - %msg%xEx%n"/>
+        </File>
+    </Appenders>
+
+
+    <Loggers>
+        <Root level="trace">
+            <AppenderRef ref="errorlog"/>
+            <AppenderRef ref="STDOUT"/>
+            <AppenderRef ref="infolog"/>
+        </Root>
+    </Loggers>
+</Configuration>
