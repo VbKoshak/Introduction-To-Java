@@ -88,7 +88,7 @@ public class constructorInstructionsValidator {
         }
 
         private static boolean checkCommon(String[] instructionLine){
-                boolean result = true;
+                boolean result;
                 if (instructionLine.length < 6){
                         result = false;
                 } else {
@@ -117,8 +117,8 @@ public class constructorInstructionsValidator {
                         case "011":
                                 result = ((instructionLine.length == 9) &&
                                         isInt(instructionLine[6]) &&
-                                        isInt(instructionLine[7]) &&
-                                        isInt(instructionLine[8])
+                                        isDouble(instructionLine[7]) &&
+                                        isDouble(instructionLine[8])
                                 );
                                 break;
                         default:
@@ -170,7 +170,7 @@ public class constructorInstructionsValidator {
         }
 
         private static boolean checkPassangerCarriages(String[] instructionLine){
-                boolean result = true;
+                boolean result ;
                 switch(instructionLine[0]){
                         case "040":
                                 result = ((instructionLine.length == 8) &&
@@ -192,13 +192,14 @@ public class constructorInstructionsValidator {
                 return result;
         }
 
+        //used to change id line in instructions to order function to skip this line
         private static void disableLine(String[][] instructions, int line){
                 logger.info("Line #" + (line+1) + " can not be read ");
                 instructions[line][0] = "--";
         }
 
         //TODO add possibility to add some trains in one file
-        //as locomative is necessary for building train it throws exceptions unlike carriages that will be just ignored
+        //as locomative is necessary for building train it throws exceptions, unlike carriages that will be just ignored
         public static void checkInstructions(String[][] instructions) throws WrongInputException {
                 logger.traceEntry();
                 String errorMsg;
@@ -215,7 +216,7 @@ public class constructorInstructionsValidator {
                         }
                 }
                 if(!checkLocomative(instructions[0])){
-                        errorMsg = "Locamative description is not full or incorrect, train can not be build";
+                        errorMsg = "Locomative description is not full or incorrect, train can not be build";
                         logger.error(errorMsg);
                         throw new WrongInputException(errorMsg,1 ,"ERR");
                 }

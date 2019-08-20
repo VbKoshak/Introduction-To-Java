@@ -9,7 +9,8 @@ public abstract class BasicCarrier extends Carriage {
         private String productName;
         private double maxLoadout; // liters
 
-        public BasicCarrier(short yearOfConstruction, int expencesPerKm, double weightWithoutCargo, String model, TypeOfHook hook, String productName, double maxLoadout) {
+        public BasicCarrier(short yearOfConstruction, int expencesPerKm, double weightWithoutCargo, String model,
+                            TypeOfHook hook, String productName, double maxLoadout) {
                 super(yearOfConstruction, expencesPerKm, weightWithoutCargo, model, hook);
                 this.productName = productName;
                 this.maxLoadout = maxLoadout;

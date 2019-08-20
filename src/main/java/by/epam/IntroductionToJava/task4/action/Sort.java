@@ -10,10 +10,11 @@ import java.util.Comparator;
 
 public class Sort {
         private static final Logger logger = LogManager.getLogger("SORTER");
+
+
         public static void sortById(Carriage[] arr) {
                 Arrays.sort(arr, (o1, o2) -> (o1.getId() - o2.getId()));
         }
-
         public static void sortById(Train T){
                 sortById(T.getCarriages());
                 logger.info("sorted");
@@ -26,7 +27,6 @@ public class Sort {
                 Arrays.sort(arr,comparator);
                 logger.info("sorted");
         }
-
         public static void sortByYear(Train T){
                 sortByYear(T.getCarriages());
                 logger.info("sorted");

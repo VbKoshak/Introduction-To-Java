@@ -19,7 +19,6 @@ public class Show {
                 }
 
         }
-
         public static void showCarriages(Train T){
                 showCarriages(T.getCarriages());
         }
@@ -27,17 +26,17 @@ public class Show {
         public static void showLocomative(Locomative L){
                 System.out.println(L.toString());
         }
-
         public static void showLocomative(Train T){
                 System.out.println(T.getLocomative().toString());
         }
 
         public static void showTrain(Train T){
                 System.out.println(LINE);
-                T.toString();
+                System.out.println(T.toString());
                 showLocomative(T);
                 if (T.getCarriageamount() > 0) {
                         showCarriages(T);
+                        showInfoAboutCarriages(T);
                 }
                 System.out.println(LINE);
         }

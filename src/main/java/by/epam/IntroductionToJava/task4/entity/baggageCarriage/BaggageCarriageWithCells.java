@@ -4,12 +4,12 @@ import by.epam.IntroductionToJava.task4.entity.additionalInfo.TypeOfHook;
 
 public class BaggageCarriageWithCells extends BaggageCarriage {
         private int numberOfCells;
-        private int spacePerCell;
-        private int maxLoadoutPerCell;
+        private double spacePerCell;       //cubic meters
+        private double maxLoadoutPerCell;  //kg
 
         public BaggageCarriageWithCells(short yearOfConstruction, int expencesPerKm, double weightWithoutCargo,
-                                        String model, TypeOfHook hook, int numberOfCells, int spacePerCell,
-                                        int maxLoadoutPerCell) {
+                                        String model, TypeOfHook hook, int numberOfCells, double spacePerCell,
+                                        double maxLoadoutPerCell) {
                 super(yearOfConstruction, expencesPerKm, weightWithoutCargo, model, hook,
                         numberOfCells*spacePerCell, numberOfCells*maxLoadoutPerCell);
                 this.numberOfCells = numberOfCells;
@@ -21,11 +21,11 @@ public class BaggageCarriageWithCells extends BaggageCarriage {
                 return numberOfCells;
         }
 
-        public int getSpacePerCell() {
+        public double getSpacePerCell() {
                 return spacePerCell;
         }
 
-        public int getMaxLoadoutPerCell() {
+        public double getMaxLoadoutPerCell() {
                 return maxLoadoutPerCell;
         }
 

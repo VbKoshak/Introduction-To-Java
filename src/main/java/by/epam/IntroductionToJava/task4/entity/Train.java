@@ -6,18 +6,15 @@ import by.epam.IntroductionToJava.task4.entity.baggageCarriage.BaggageCarriage;
 import by.epam.IntroductionToJava.task4.entity.cargoCarriage.BasicCarrier;
 import by.epam.IntroductionToJava.task4.entity.passangerCarriage.PassangerCarriage;
 
-import java.util.Arrays;
-import java.util.Objects;
-
 import static by.epam.IntroductionToJava.task4.validators.InstanceValidator.*;
 
 public class Train {
         private Locomative locomative;
         private Carriage[] carriages;
         private int totalNumberOfPlaces;
-        private double totalCargoLoadout;
-        private double totalBaggageLoadout;
-        private double totalBaggageSpace;
+        private double totalCargoLoadout;       //kg
+        private double totalBaggageLoadout;     //kg
+        private double totalBaggageSpace;       //kg
         private int carriageamount;
 
         {
@@ -30,11 +27,13 @@ public class Train {
                 totalBaggageSpace = 0.0;
         }
 
+        //inner method used to clone carriages fromm one array to another
         private void cloneCarriage(Carriage[] from, Carriage[] to){
                 for (int i = 0; i < from.length; i++){
                         to[i] = from[i];
                 }
         }
+        //inner method used to clone carriages from one array to another starting from {startingFrom}
         private void cloneCarriage(Carriage[] from, Carriage[] to, int startingFrom){
                 int length = from.length + startingFrom;
                 for (int i = startingFrom,j=0; i < length; i++,j++){
@@ -56,13 +55,11 @@ public class Train {
         public Train(Locomative locomative) {
                 this.locomative = locomative;
         }
-
         public Train(Locomative L, Carriage C){
                 this.locomative = L;
                 this.carriages = new Carriage[++carriageamount];
                 this.carriages[0] = C;
         }
-
         public Train(Locomative L, Carriage[] Cs){
                 this.locomative = L;
                 this.carriages = new Carriage[Cs.length];
@@ -83,7 +80,6 @@ public class Train {
                 cloneCarriage(tempCarriages,carriages);
                 addInfo(car);
         }
-
         public void addCarriage(Carriage[] cars) {
                 carriageamount += cars.length;
                 Carriage[] tempCarriages = new Carriage[carriageamount];
@@ -96,6 +92,7 @@ public class Train {
                 }
         }
 
+        //shows info about carriages that has required number of places
         public int selectCarriagesByPlaces(int requiredNumber) {        //returns number of carriages with more places then required4
                 int amount = 0;
                 System.out.println("--\tSearch Results\t--");
@@ -139,13 +136,19 @@ public class Train {
                 if (this == o) return true;
                 if (o == null || getClass() != o.getClass()) return false;
                 Train train = (Train) o;
+                boolean carEquals = true;
+                for (int i = 0; i < carriageamount; i++){
+                        if(!carriages[i].equals(train.getCarriages()[i])){
+                                carEquals = false;
+                        }
+                }
+                if(!carEquals) return false;
                 return totalNumberOfPlaces == train.totalNumberOfPlaces &&
                         Double.compare(train.totalCargoLoadout, totalCargoLoadout) == 0 &&
                         Double.compare(train.totalBaggageLoadout, totalBaggageLoadout) == 0 &&
                         Double.compare(train.totalBaggageSpace, totalBaggageSpace) == 0 &&
                         carriageamount == train.carriageamount &&
-                        Objects.equals(locomative, train.locomative) &&
-                        Arrays.equals(carriages, train.carriages);
+                        locomative.equals(train.getLocomative());
         }
 
         @Override

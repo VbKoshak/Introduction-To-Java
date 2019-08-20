@@ -18,7 +18,6 @@ public class Locomative {
                 this.model = model;
                 this.power = power;
         }
-
         public Locomative(){
                 this.model = "unknown";
                 this.power = 0;
@@ -35,7 +34,7 @@ public class Locomative {
 
         @Override
         public int hashCode() {
-                return model.hashCode() + power;
+                return Integer.parseInt("9" + (model.hashCode() + power)/10);
         }
 
         @Override

@@ -18,7 +18,7 @@ public class RestaurantCarriage extends Carriage {
                 return numberOfSeats;
         }
 
-        public boolean isHasBar() {
+        public boolean HasBar() {
                 return hasBar;
         }
 

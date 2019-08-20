@@ -8,7 +8,7 @@ public abstract class Carriage {
         private short yearOfConstruction;
         private int expencesPerKm;
         private double weightWithoutCargo; // kg
-        private int id;
+        private int id;                    //given by the program, can not be set
         private String model;
         private TypeOfHook hook;
 
@@ -66,7 +66,7 @@ public abstract class Carriage {
 
         @Override
         public int hashCode(){
-                return Integer.parseInt(Integer.toString(id) + model.hashCode());
+                return Integer.parseInt(Integer.toString(id) + model.hashCode()/100);
         }
 
         //Returns true not only for the same carriages, but also with the same characteristics (e.g. not comparing id

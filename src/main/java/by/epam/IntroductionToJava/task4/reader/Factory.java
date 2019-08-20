@@ -14,7 +14,6 @@ import by.epam.IntroductionToJava.task4.validators.WrongInputException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import static by.epam.IntroductionToJava.task4.reader.Reader.getConstructorIntructions;
 import static by.epam.IntroductionToJava.task4.validators.constructorInstructionsValidator.checkInstructions;
 
 
@@ -22,6 +21,8 @@ public class Factory {
         private static String FILE_PATH = "src/main/java/by/epam/IntroductionToJava/task4/inputFiles/";
         private static final Logger logger = LogManager.getLogger("FACTORY");
 
+
+        //converters
         private static short toShort(String s){
                 return (short)Integer.parseInt(s);
         }
@@ -171,6 +172,18 @@ public class Factory {
                 } finally {
                         return logger.traceExit(T);
                 }
+        }
+
+        //method that uses String after reading file and converts it into String[][] of instructions, that are rdy for
+        //{createTrain} function
+        private static String[][] getConstructorIntructions(String text){
+                logger.traceEntry();
+                String[] arr = text.split("\n");
+                String[][] mtx = new String[arr.length][];
+                for (int i = 0; i < arr.length; i++) {
+                        mtx[i] = arr[i].split(" ");
+                }
+                return mtx;
         }
 
 }

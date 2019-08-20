@@ -28,24 +28,24 @@ Types of hook can be:
     D
     I - special type used for unidentified types (don't use it)
 
-List of required parametrs:
-    * use space to separate parametres
-    * if you want to use space( ) in string parametr use underscore(_), it will be replaced
+List of required parameters:
+    * use space to separate parameters
+    * if you want to use space( ) in string parameter use underscore(_), it will be replaced automatically
     * parameters with ? in the end have only 2 options: ( + ) if true, ( - ) if false
 
-    for all: Year of construction | expences per km | weight without cargo (cg) | model(string) | Type of hook
+    for all: Year of construction | expences per km (integer) | weight without cargo (double) | model(string) | Type of hook
 
     00  - model(string) | power (horse powers)
 
-    010 - for all + space for baggage(cubic metres) | maxLoadout(kg)
-    011 - for all + number of cells | space per cell | max loadout per cell
+    010 - for all + space for baggage(cubic metres) | maxLoadout(double)
+    011 - for all + number of cells | space per cell (double) | max loadout per cell
 
     020 - for all + product name(string) | max loadout | is covered ? | has walls ?
     021 - for all + product name(string) | max loadout | is explosive ? | is refrigerated ?
 
     030 - for all + number of seats | has bar ?
 
-    040 - for all + total number of places | price per place
+    040 - for all + total number of places | price per place (integer)
     041 - for all + price per place | number of rooms | places per room
 
 
