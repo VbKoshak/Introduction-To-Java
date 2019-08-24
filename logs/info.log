@@ -1,14 +1,11 @@
-14:32:43.339 TRACE by.epam.IntroductionToJava.task4.reader.Factory 157 buildTrainFromFile - Enter wrongcarriageinput.txt
-14:32:43.352 TRACE by.epam.IntroductionToJava.task4.reader.Reader 18 readFile - Enter
-14:32:43.354 TRACE by.epam.IntroductionToJava.task4.reader.Reader 38 getConstructorIntructions - Enter
-14:32:43.356 TRACE by.epam.IntroductionToJava.task4.validators.constructorInstructionsValidator 203 checkInstructions - Enter
-14:32:43.358 ERROR by.epam.IntroductionToJava.task4.validators.constructorInstructionsValidator 18 isYear - java.lang.NumberFormatException: For input string: "ABS"
-14:32:43.361 INFO  by.epam.IntroductionToJava.task4.validators.constructorInstructionsValidator 196 disableLine - Line #2 can not be read 
-14:32:43.363 TRACE by.epam.IntroductionToJava.task4.reader.Factory 56 createTrain - Enter
-14:32:43.363 INFO  by.epam.IntroductionToJava.task4.reader.Factory 149 createTrain - Line #2 will be skipped
-14:32:43.366 TRACE by.epam.IntroductionToJava.task4.reader.Factory 172 buildTrainFromFile - Exit with(Train
+22:36:19.084 TRACE by.epam.IntroductionToJava.task4.reader.Factory 158 buildTrainFromFile - Enter example.txt
+22:36:19.131 TRACE by.epam.IntroductionToJava.task4.reader.Reader 16 readFile - Enter
+22:36:19.147 TRACE by.epam.IntroductionToJava.task4.reader.Factory 180 getConstructorIntructions - Enter
+22:36:19.209 TRACE by.epam.IntroductionToJava.task4.validators.constructorInstructionsValidator 204 checkInstructions - Enter
+22:36:19.209 TRACE by.epam.IntroductionToJava.task4.reader.Factory 57 createTrain - Enter
+22:36:19.209 TRACE by.epam.IntroductionToJava.task4.reader.Factory 173 buildTrainFromFile - Exit with(Train
 	Total cargo loadout: 0.0
-	Total baggage loadout: 0.0
-	Total space for baggage: 0.0
+	Total baggage loadout: 4000.0
+	Total space for baggage: 200.0
 	Total number of places: 0
-	Number of carriages: 1)
+	Number of carriages: 2)

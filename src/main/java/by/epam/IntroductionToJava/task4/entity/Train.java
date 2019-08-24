@@ -17,16 +17,6 @@ public class Train {
         private double totalBaggageSpace;       //kg
         private int carriageamount;
 
-        {
-                locomative = new Locomative();
-                carriageamount = 0;
-                carriages = new Carriage[0];
-                totalNumberOfPlaces = 0;
-                totalCargoLoadout = 0.0;
-                totalBaggageLoadout = 0.0;
-                totalBaggageSpace = 0.0;
-        }
-
         //inner method used to clone carriages fromm one array to another
         private void cloneCarriage(Carriage[] from, Carriage[] to){
                 for (int i = 0; i < from.length; i++){
@@ -54,6 +44,7 @@ public class Train {
 
         public Train(Locomative locomative) {
                 this.locomative = locomative;
+                carriages = new Carriage[0];
         }
         public Train(Locomative L, Carriage C){
                 this.locomative = L;
@@ -69,7 +60,8 @@ public class Train {
         }
 
         public Train(){
-                return;
+                locomative = new Locomative();
+                carriages = new Carriage[0];
         }
 
         public void addCarriage(Carriage car){
