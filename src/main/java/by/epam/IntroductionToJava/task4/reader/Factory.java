@@ -1,6 +1,6 @@
 package by.epam.IntroductionToJava.task4.reader;
 
-import by.epam.IntroductionToJava.task4.entity.Locomative;
+import by.epam.IntroductionToJava.task4.entity.Locomotive;
 import by.epam.IntroductionToJava.task4.entity.Train;
 import by.epam.IntroductionToJava.task4.entity.additionalInfo.TypeOfHook;
 import by.epam.IntroductionToJava.task4.entity.baggageCarriage.BaggageCarriage;
@@ -55,7 +55,7 @@ public class Factory {
 
         public static Train createTrain (String[][] constructorInstructions) {
                 logger.traceEntry();
-                Locomative L = new Locomative(constructorInstructions[0][1],toInt(constructorInstructions[0][2].trim()));
+                Locomotive L = new Locomotive(constructorInstructions[0][1],toInt(constructorInstructions[0][2].trim()));
                 Train T = new Train(L);
 
                 for (int i = 1; i < constructorInstructions.length; i++) {

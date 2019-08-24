@@ -6,10 +6,10 @@ public class CargoCarrier extends BasicCarrier {
         private boolean isCovered;
         private boolean hasWalls;
 
-        public CargoCarrier(short yearOfConstruction, int expencesPerKm, double weightWithoutCargo,
-                            String model, TypeOfHook hook, String productName, double maxLoadout, boolean isCovered,
+        public CargoCarrier(short yearOfConstruction, int expensesPerKm, double weightWithoutCargo,
+                            String model, TypeOfHook hook, String productName, double maxLoading, boolean isCovered,
                             boolean hasWalls) {
-                super(yearOfConstruction, expencesPerKm, weightWithoutCargo, model, hook, productName, maxLoadout);
+                super(yearOfConstruction, expensesPerKm, weightWithoutCargo, model, hook, productName, maxLoading);
                 this.isCovered = isCovered;
                 this.hasWalls = hasWalls;
         }

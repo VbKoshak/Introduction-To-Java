@@ -1,7 +1,7 @@
 package by.epam.IntroductionToJava.task4.action;
 
 import by.epam.IntroductionToJava.task4.entity.Carriage.Carriage;
-import by.epam.IntroductionToJava.task4.entity.Locomative;
+import by.epam.IntroductionToJava.task4.entity.Locomotive;
 import by.epam.IntroductionToJava.task4.entity.Train;
 import by.epam.IntroductionToJava.task4.entity.additionalInfo.TypeOfHook;
 import by.epam.IntroductionToJava.task4.entity.baggageCarriage.BaggageCarriage;
@@ -24,7 +24,7 @@ public class SortTest {
                 return arr;
         }
 
-        private Locomative loc = new Locomative("Tachis 2001", 2800);
+        private Locomotive loc = new Locomotive("Tachis 2001", 2800);
         private Train T = new Train(loc);
         private BaggageCarriage car1 = new BaggageCarriage((short)1973,102,200,"Lighter-800", TypeOfHook.A,250,800);
         private LiquidCarrier car2 = new LiquidCarrier((short) 2001, 203,300,"Aqua-2001b",TypeOfHook.B,"Oil",800, true, false);

@@ -7,9 +7,9 @@ public class RestaurantCarriage extends Carriage {
         private int numberOfSeats;
         private boolean hasBar;
 
-        public RestaurantCarriage(short yearOfConstruction, int expencesPerKm, double weightWithoutCargo,
+        public RestaurantCarriage(short yearOfConstruction, int expensesPerKm, double weightWithoutCargo,
                                   String model, TypeOfHook hook, int numberOfSeats, boolean hasBar) {
-                super(yearOfConstruction, expencesPerKm, weightWithoutCargo, model, hook);
+                super(yearOfConstruction, expensesPerKm, weightWithoutCargo, model, hook);
                 this.numberOfSeats = numberOfSeats;
                 this.hasBar = hasBar;
         }

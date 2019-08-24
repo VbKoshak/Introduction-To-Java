@@ -6,7 +6,7 @@ import java.util.Objects;
 
 public abstract class Carriage {
         private short yearOfConstruction;
-        private int expencesPerKm;
+        private int expensesPerKm;
         private double weightWithoutCargo; // kg
         private int id;                    //given by the program, can not be set
         private String model;
@@ -18,9 +18,9 @@ public abstract class Carriage {
                 count  = 1;
         }
 
-        public Carriage(short yearOfConstruction, int expencesPerKm, double weightWithoutCargo, String model, TypeOfHook hook) {
+        public Carriage(short yearOfConstruction, int expensesPerKm, double weightWithoutCargo, String model, TypeOfHook hook) {
                 this.yearOfConstruction = yearOfConstruction;
-                this.expencesPerKm = expencesPerKm;
+                this.expensesPerKm = expensesPerKm;
                 this.weightWithoutCargo = weightWithoutCargo;
                 this.model = model;
                 this.hook = hook;
@@ -31,8 +31,8 @@ public abstract class Carriage {
                 return yearOfConstruction;
         }
 
-        public int getExpencesPerKm() {
-                return expencesPerKm;
+        public int getExpensesPerKm() {
+                return expensesPerKm;
         }
 
         public double getWeightWithoutCargo() {
@@ -59,7 +59,7 @@ public abstract class Carriage {
                         "\n\tModel: " + model +
                         "\nCharacteristics" +
                         "\n\tYear of construction: " + yearOfConstruction +
-                        "\n\tExpences\\Km: " + expencesPerKm +
+                        "\n\tExpenses\\Km: " + expensesPerKm +
                         "\n\tWeight without cargo: "  + weightWithoutCargo + " kg" +
                         "\n\tType of hook: " + hook;
         }
@@ -76,7 +76,7 @@ public abstract class Carriage {
                 if (this == o) return true;
                 if (o == null || getClass() != o.getClass()) return false;
                 Carriage carriage = (Carriage) o;
-                return expencesPerKm == carriage.expencesPerKm &&
+                return expensesPerKm == carriage.expensesPerKm &&
                         Double.compare(carriage.weightWithoutCargo, weightWithoutCargo) == 0 &&
                         Objects.equals(model, carriage.model) &&
                         hook == carriage.hook;

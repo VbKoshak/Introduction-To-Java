@@ -4,22 +4,22 @@ import by.epam.IntroductionToJava.task4.entity.additionalInfo.TypeOfHook;
 
 public class LiquidCarrier extends BasicCarrier {
         private boolean isExplosive;
-        private boolean isRefregerated;
+        private boolean isRefrigerated;
 
-        public LiquidCarrier(short yearOfConstruction, int expencesPerKm, double weightWithoutCargo,
-                             String model, TypeOfHook hook, String productName, double maxLoadout, boolean isExplosive,
-                             boolean isRefregerated) {
-                super(yearOfConstruction, expencesPerKm, weightWithoutCargo, model, hook, productName, maxLoadout);
+        public LiquidCarrier(short yearOfConstruction, int expensesPerKm, double weightWithoutCargo,
+                             String model, TypeOfHook hook, String productName, double maxLoading, boolean isExplosive,
+                             boolean isRefrigerated) {
+                super(yearOfConstruction, expensesPerKm, weightWithoutCargo, model, hook, productName, maxLoading);
                 this.isExplosive = isExplosive;
-                this.isRefregerated = isRefregerated;
+                this.isRefrigerated = isRefrigerated;
         }
 
         public boolean isExplosive() {
                 return isExplosive;
         }
 
-        public boolean isRefregerated() {
-                return isRefregerated;
+        public boolean isRefrigerated() {
+                return isRefrigerated;
         }
 
         @Override
@@ -29,13 +29,13 @@ public class LiquidCarrier extends BasicCarrier {
                 if (!super.equals(o)) return false;
                 LiquidCarrier that = (LiquidCarrier) o;
                 return isExplosive == that.isExplosive &&
-                        isRefregerated == that.isRefregerated;
+                        isRefrigerated == that.isRefrigerated;
         }
 
         @Override
         public String toString() {
                 return super.toString() +
                         "\n\t" + (isExplosive ? "Explosive":"Not explosive") +
-                        "\n\t" + (isRefregerated ? "Refregerated": "Not refregerated");
+                        "\n\t" + (isRefrigerated ? "Refrigerated": "Not refrigerated");
         }
 }

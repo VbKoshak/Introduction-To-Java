@@ -7,9 +7,9 @@ public class PassangerCarriage extends Carriage {
         private int totalNumberOfPlaces;
         private int pricePerPlace;
 
-        public PassangerCarriage(short yearOfConstruction, int expencesPerKm, double weightWithoutCargo,
+        public PassangerCarriage(short yearOfConstruction, int expensesPerKm, double weightWithoutCargo,
                                  String model, TypeOfHook hook, int totalNumberOfPlaces, int pricePerPlace) {
-                super(yearOfConstruction, expencesPerKm, weightWithoutCargo, model, hook);
+                super(yearOfConstruction, expensesPerKm, weightWithoutCargo, model, hook);
                 this.totalNumberOfPlaces = totalNumberOfPlaces;
                 this.pricePerPlace = pricePerPlace;
         }

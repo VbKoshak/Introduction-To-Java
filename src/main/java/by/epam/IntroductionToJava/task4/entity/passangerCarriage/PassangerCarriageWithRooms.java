@@ -6,9 +6,9 @@ public class PassangerCarriageWithRooms extends PassangerCarriage {
         private int numberOfRooms;
         private int placesPerRoom;
 
-        public PassangerCarriageWithRooms(short yearOfConstruction, int expencesPerKm, double weightWithoutCargo, String model, TypeOfHook hook,
+        public PassangerCarriageWithRooms(short yearOfConstruction, int expensesPerKm, double weightWithoutCargo, String model, TypeOfHook hook,
                                           int pricePerPlace, int numberOfRooms, int placesPerRoom) {
-                super(yearOfConstruction, expencesPerKm, weightWithoutCargo, model, hook, numberOfRooms*placesPerRoom, pricePerPlace);
+                super(yearOfConstruction, expensesPerKm, weightWithoutCargo, model, hook, numberOfRooms*placesPerRoom, pricePerPlace);
                 this.numberOfRooms = numberOfRooms;
                 this.placesPerRoom = placesPerRoom;
         }

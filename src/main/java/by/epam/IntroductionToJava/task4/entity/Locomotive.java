@@ -2,9 +2,18 @@ package by.epam.IntroductionToJava.task4.entity;
 
 import java.util.Objects;
 
-public class Locomative {
+public class Locomotive {
         private String model;
         private int power; //horse powers
+
+        public Locomotive(String model, int power) {
+                this.model = model;
+                this.power = power;
+        }
+        public Locomotive(){
+                this.model = "unknown";
+                this.power = 0;
+        }
 
         public String getModel() {
                 return model;
@@ -14,20 +23,11 @@ public class Locomative {
                 return power;
         }
 
-        public Locomative(String model, int power) {
-                this.model = model;
-                this.power = power;
-        }
-        public Locomative(){
-                this.model = "unknown";
-                this.power = 0;
-        }
-
         @Override
         public boolean equals(Object o) {
                 if (this == o) return true;
                 if (o == null || getClass() != o.getClass()) return false;
-                Locomative that = (Locomative) o;
+                Locomotive that = (Locomotive) o;
                 return power == that.power &&
                         Objects.equals(model, that.model);
         }
@@ -39,7 +39,7 @@ public class Locomative {
 
         @Override
         public String toString() {
-                return  "Locomative" +
+                return  "Locomotive" +
                         "\n\tModel: " + model +
                         "\n\tPower: " + power + " hp";
         }

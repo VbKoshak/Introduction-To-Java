@@ -5,21 +5,21 @@ import by.epam.IntroductionToJava.task4.entity.additionalInfo.TypeOfHook;
 
 public class BaggageCarriage extends Carriage {
         private double spaceForBaggage; // cubic meters
-        private double maxLoadout;      // kg
+        private double maxLoading;      // kg
 
-        public BaggageCarriage(short yearOfConstruction, int expencesPerKm, double weightWithoutCargo,
-                               String model, TypeOfHook hook, double spaceForBaggage, double maxLoadout) {
-                super(yearOfConstruction, expencesPerKm, weightWithoutCargo, model, hook);
+        public BaggageCarriage(short yearOfConstruction, int expensesPerKm, double weightWithoutCargo,
+                               String model, TypeOfHook hook, double spaceForBaggage, double maxLoading) {
+                super(yearOfConstruction, expensesPerKm, weightWithoutCargo, model, hook);
                 this.spaceForBaggage = spaceForBaggage;
-                this.maxLoadout = maxLoadout;
+                this.maxLoading = maxLoading;
         }
 
         public double getSpaceForBaggage() {
                 return spaceForBaggage;
         }
 
-        public double getMaxLoadout() {
-                return maxLoadout;
+        public double getMaxLoading() {
+                return maxLoading;
         }
 
         @Override
@@ -29,7 +29,7 @@ public class BaggageCarriage extends Carriage {
                 if (!super.equals(o)) return false;
                 BaggageCarriage that = (BaggageCarriage) o;
                 return Double.compare(that.spaceForBaggage, spaceForBaggage) == 0 &&
-                        Double.compare(that.maxLoadout, maxLoadout) == 0;
+                        Double.compare(that.maxLoading, maxLoading) == 0;
         }
 
         @Override
@@ -41,6 +41,6 @@ public class BaggageCarriage extends Carriage {
         public String toString() {
                 return super.toString() +
                         "\n\tSpaceForBaggage: " + spaceForBaggage +
-                        "\n\tMaxLoadout: " + maxLoadout;
+                        "\n\tMaxLoading: " + maxLoading;
         }
 }

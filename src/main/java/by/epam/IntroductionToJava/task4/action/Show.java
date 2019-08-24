@@ -1,7 +1,7 @@
 package by.epam.IntroductionToJava.task4.action;
 
 import by.epam.IntroductionToJava.task4.entity.Carriage.Carriage;
-import by.epam.IntroductionToJava.task4.entity.Locomative;
+import by.epam.IntroductionToJava.task4.entity.Locomotive;
 import by.epam.IntroductionToJava.task4.entity.Train;
 
 import static by.epam.IntroductionToJava.task4.validators.InstanceValidator.*;
@@ -23,18 +23,18 @@ public class Show {
                 showCarriages(T.getCarriages());
         }
 
-        public static void showLocomative(Locomative L){
+        public static void showLocomative(Locomotive L){
                 System.out.println(L.toString());
         }
         public static void showLocomative(Train T){
-                System.out.println(T.getLocomative().toString());
+                System.out.println(T.getLocomotive().toString());
         }
 
         public static void showTrain(Train T){
                 System.out.println(LINE);
                 System.out.println(T.toString());
                 showLocomative(T);
-                if (T.getCarriageamount() > 0) {
+                if (T.getCarriageAmount() > 0) {
                         showCarriages(T);
                         showInfoAboutCarriages(T);
                 }
@@ -66,7 +66,7 @@ public class Show {
 
 
                 System.out.println(
-                        "Total amount of carriages: " + T.getCarriageamount() +
+                        "Total amount of carriages: " + T.getCarriageAmount() +
                         "\n\tCargo carriers: " + cargoCarriageAmount +
                         "\n\tPassanger transporters: " + passangerCarriageAmout +
                         "\n\tBaggage carriers: " + baggageCarriageAmount +

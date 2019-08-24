@@ -65,7 +65,7 @@ public class constructorInstructionsValidator {
                 return (s.length()>0);
         }
 
-        private static boolean checkLocomative(String[] instructionLine){
+        private static boolean checkLocomotive(String[] instructionLine){
                 boolean result = true;
                 try{
                         if (instructionLine.length < 3){
@@ -199,24 +199,24 @@ public class constructorInstructionsValidator {
         }
 
         //TODO add possibility to add some trains in one file
-        //as locomative is necessary for building train it throws exceptions, unlike carriages that will be just ignored
+        //as locomotive is necessary for building train it throws exceptions, unlike carriages that will be just ignored
         public static void checkInstructions(String[][] instructions) throws WrongInputException {
                 logger.traceEntry();
                 String errorMsg;
                 if(!instructions[0][0].equals("00")){
-                        errorMsg ="Instructions should start with creating locomative";
+                        errorMsg ="Instructions should start with creating locomotive";
                         logger.error(errorMsg);
                         throw new WrongInputException(errorMsg, 1, "ERR");
                 }
                 for (int i = 1; i < instructions.length;i++){
                         if (instructions[i][0].equals("00")) {
-                                errorMsg = "One file for one train, one locomative per train";
+                                errorMsg = "One file for one train, one locomotive per train";
                                 logger.error(errorMsg);
                                 throw new WrongInputException(errorMsg, i, "ERR");
                         }
                 }
-                if(!checkLocomative(instructions[0])){
-                        errorMsg = "Locomative description is not full or incorrect, train can not be build";
+                if(!checkLocomotive(instructions[0])){
+                        errorMsg = "Locomotive description is not full or incorrect, train can not be build";
                         logger.error(errorMsg);
                         throw new WrongInputException(errorMsg,1 ,"ERR");
                 }

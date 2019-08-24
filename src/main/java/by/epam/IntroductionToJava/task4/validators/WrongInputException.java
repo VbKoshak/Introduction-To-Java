@@ -12,11 +12,6 @@ public class WrongInputException extends Exception{
                 return type;
         }
 
-        public WrongInputException(String message, int line) {
-                super(message);
-                this.line = line;
-        }
-
         public WrongInputException(String message, int line, String type){
                 super(message);
                 this.line = line;

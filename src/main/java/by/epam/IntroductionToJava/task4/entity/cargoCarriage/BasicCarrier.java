@@ -7,28 +7,28 @@ import java.util.Objects;
 
 public abstract class BasicCarrier extends Carriage {
         private String productName;
-        private double maxLoadout; // liters
+        private double maxLoading; // liters
 
-        public BasicCarrier(short yearOfConstruction, int expencesPerKm, double weightWithoutCargo, String model,
-                            TypeOfHook hook, String productName, double maxLoadout) {
-                super(yearOfConstruction, expencesPerKm, weightWithoutCargo, model, hook);
+        public BasicCarrier(short yearOfConstruction, int expensesPerKm, double weightWithoutCargo, String model,
+                            TypeOfHook hook, String productName, double maxLoading) {
+                super(yearOfConstruction, expensesPerKm, weightWithoutCargo, model, hook);
                 this.productName = productName;
-                this.maxLoadout = maxLoadout;
+                this.maxLoading = maxLoading;
         }
 
         public String getProductName() {
                 return productName;
         }
 
-        public double getMaxLoadout() {
-                return maxLoadout;
+        public double getMaxLoading() {
+                return maxLoading;
         }
 
         @Override
         public String toString() {
                 return super.toString() +
                         "\n\tProduct name: " + productName +
-                        "\n\tMax loadout: " + maxLoadout + " kg";
+                        "\n\tMax loadout: " + maxLoading + " kg";
         }
 
         @Override
@@ -37,7 +37,7 @@ public abstract class BasicCarrier extends Carriage {
                 if (o == null || getClass() != o.getClass()) return false;
                 if (!super.equals(o)) return false;
                 BasicCarrier that = (BasicCarrier) o;
-                return Double.compare(that.maxLoadout, maxLoadout) == 0 &&
+                return Double.compare(that.maxLoading, maxLoading) == 0 &&
                         Objects.equals(productName, that.productName);
         }
 

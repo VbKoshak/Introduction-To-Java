@@ -5,16 +5,16 @@ import by.epam.IntroductionToJava.task4.entity.additionalInfo.TypeOfHook;
 public class BaggageCarriageWithCells extends BaggageCarriage {
         private int numberOfCells;
         private double spacePerCell;       //cubic meters
-        private double maxLoadoutPerCell;  //kg
+        private double maxLoadingPerCell;  //kg
 
-        public BaggageCarriageWithCells(short yearOfConstruction, int expencesPerKm, double weightWithoutCargo,
+        public BaggageCarriageWithCells(short yearOfConstruction, int expensesPerKm, double weightWithoutCargo,
                                         String model, TypeOfHook hook, int numberOfCells, double spacePerCell,
-                                        double maxLoadoutPerCell) {
-                super(yearOfConstruction, expencesPerKm, weightWithoutCargo, model, hook,
-                        numberOfCells*spacePerCell, numberOfCells*maxLoadoutPerCell);
+                                        double maxLoadingPerCell) {
+                super(yearOfConstruction, expensesPerKm, weightWithoutCargo, model, hook,
+                        numberOfCells*spacePerCell, numberOfCells* maxLoadingPerCell);
                 this.numberOfCells = numberOfCells;
                 this.spacePerCell = spacePerCell;
-                this.maxLoadoutPerCell = maxLoadoutPerCell;
+                this.maxLoadingPerCell = maxLoadingPerCell;
         }
 
         public int getNumberOfCells() {
@@ -25,8 +25,8 @@ public class BaggageCarriageWithCells extends BaggageCarriage {
                 return spacePerCell;
         }
 
-        public double getMaxLoadoutPerCell() {
-                return maxLoadoutPerCell;
+        public double getMaxLoadingPerCell() {
+                return maxLoadingPerCell;
         }
 
         @Override
@@ -37,7 +37,7 @@ public class BaggageCarriageWithCells extends BaggageCarriage {
                 BaggageCarriageWithCells that = (BaggageCarriageWithCells) o;
                 return numberOfCells == that.numberOfCells &&
                         spacePerCell == that.spacePerCell &&
-                        maxLoadoutPerCell == that.maxLoadoutPerCell;
+                        maxLoadingPerCell == that.maxLoadingPerCell;
         }
 
         @Override
@@ -45,6 +45,6 @@ public class BaggageCarriageWithCells extends BaggageCarriage {
                 return super.toString() +
                         "\n\tNumber of cells: " + numberOfCells +
                         "\n\tSpace per cell: " + spacePerCell +
-                        "\n\tMax loadout per cell: " + maxLoadoutPerCell;
+                        "\n\tMax loadout per cell: " + maxLoadingPerCell;
         }
 }
